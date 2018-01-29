@@ -40,11 +40,15 @@ public class TasksBusiness {
 				me = blockly.UserSkillsBusiness.getEmailfromLoggedUser();
 				System.out.println(Var.valueOf(Var.valueOf("I am").toString() + me.toString()).getObjectAsString());
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
-						Var.valueOf("Task.active.cronappuser_email"), Var.VAR_NULL);
+						Var.valueOf("Task.active.cronappuser_email"), me);
 				data = cronapi.database.Operations.query(Var.valueOf("app.entity.Task"),
 						Var.valueOf("select t from Task t where t.id = :id"),
 						Var.valueOf("id", cronapi.screen.Operations.getValueOfField(Var.valueOf("Task.active.id"))));
-				cronapi.database.Operations.updateField(data, Var.valueOf("assigned"), Var.valueOf("Assigned"));
+				cronapi.database.Operations.updateField(data, Var.valueOf("cronappuser_email\n"), me);
+				cronapi.database.Operations.updateField(data, Var.valueOf("status"), blockly.TasksBusiness.assigned());
+				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.notify"), Var.valueOf("success"),
+						Var.valueOf(Var.valueOf("Tarefa atribuida. Recarregue a página. ID da tarefa:").toString()
+								+ cronapi.screen.Operations.getValueOfField(Var.valueOf("Task.active.id")).toString()));
 				return Var.VAR_NULL;
 			}
 		}.call();

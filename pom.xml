@@ -28,8 +28,8 @@
                     <target>https://api.cronapp.io</target>
                     <org>marisribas@gmail.com</org>
                     <space>develop</space>
-                    <appname>cronappskills</appname>
-                    <url>cronappskills.cronapp.io</url>
+                    <appname>ccc</appname>
+                    <url>ccc.cronapp.io</url>
                     <instances>1</instances>
                     <memory>512</memory>
                     <username/>

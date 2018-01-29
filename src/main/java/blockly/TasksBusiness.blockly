@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/TodoTasks.view.html" resourceType="JAVA" ruleDescription="Tasks" ruleName="Tasks" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="253.9999999999996" scrolly="263.5" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="253.99999999999858" scrolly="229.5" target="7~OyTDJ~QEZWh%{|4^x1"/>
   <block colour="#995ba5" id="7~OyTDJ~QEZWh%{|4^x1" origintype="procedures_defnoreturn" output="false" tooltip="Creates a function with no output." type="procedures_defnoreturn" x="-157" y="-427">
     <field name="NAME">assignToMe</field>
     <comment h="80" pinned="false" w="160">Describe this function...</comment>
@@ -46,6 +46,9 @@
                   <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id=",QVYT2ioO.jw0{-;cL3#" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
                     <field name="TEXT"/>
                   </shadow>
+                  <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="qnkC1MlH(feicI+de=1f" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get">
+                    <field name="VAR">me</field>
+                  </block>
                 </value>
                 <next>
                   <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="UBu~BtV|5,@|ZGOUSHN?" origintype="variables_set" output="false" tooltip="Sets this variable to be equal to the input." type="variables_set">
@@ -83,14 +86,76 @@
                         </value>
                         <value name="ARG1">
                           <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="bZ1GVjz.{ZC`6G*b*WVc" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
-                            <field name="TEXT">assigned</field>
+                            <field name="TEXT">cronappuser_email
+</field>
                           </shadow>
                         </value>
                         <value name="ARG2">
                           <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="3:M(zQi(]kw4v9zzBlWJ" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
                             <field name="TEXT">Assigned</field>
                           </shadow>
+                          <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="A7+w`Dji;!svM?ks8osW" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get">
+                            <field name="VAR">me</field>
+                          </block>
                         </value>
+                        <next>
+                          <block colour="#db802b" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="qO-J[`%Z@N?%(9J4wCY5" multilayer="false" namespace="cronapi.database.Operations.updateField" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3EName:%3C/strong%3E%3Cdiv%3EUpdate%20field%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescription:%3C/strong%3E%3Cdiv%3EFunction%20that%20update%20field%20in%20current%20data%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParameters:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Datasource%20:%20DataSet%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Field%20name%20:%20String%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Field%20value%20:%20String%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EHelp:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.updateField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.updateField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
+                            <mutation name="{{cronapi.database.Operations.updateField}}">
+                              <arg cronapi-type="ObjectType.DATASET" name="Datasource"/>
+                              <arg cronapi-type="ObjectType.STRING" name="Field name"/>
+                              <arg cronapi-type="ObjectType.STRING" name="Field value"/>
+                            </mutation>
+                            <value name="ARG0">
+                              <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="%h0)I$5!-SArN_MbU;:Q" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get">
+                                <field name="VAR">data</field>
+                              </block>
+                            </value>
+                            <value name="ARG1">
+                              <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="H_tZ,kt4P_x[+)b`h`H%" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                <field name="TEXT">status</field>
+                              </shadow>
+                            </value>
+                            <value name="ARG2">
+                              <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="3:M(zQi(]kw4v9zzBlWJ" origintype="text" output="true" tooltip="function () { [native code] }" type="text" xmlns="">
+                                <field name="TEXT">Assigned</field>
+                              </shadow>
+                              <block colour="#487f7f" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id=".+(PHD.`OeMyw%Gy`kWX" multilayer="false" namespace="cronapi.util.Operations.callBlockly" origintype="procedures_callblockly_callreturn" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3EName:%3C/strong%3E%3Cdiv%3ECall%20blockly%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescription:%3C/strong%3E%3Cdiv%3EFunction%20to%20call%20a%20blocky%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParameters:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Block%20:%20Object%3C/span%3E%3Cdiv%3E%20Block%20name%3C/div%3E%3Cspan%3E%20-%20Parameters%20:%20Object%3C/span%3E%3Cdiv%3E%20Parameters%20to%20be%20passed%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3EReturn:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Object%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EHelp:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.util.Operations.callBlockly%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.util.Operations.callBlockly%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callblockly_callreturn">
+                                <mutation data="%7B%22name%22:%22TasksBusiness%22,%22class%22:%22blockly.TasksBusiness%22,%22function%22:%22assigned%22,%22oldName%22:%22assigned%22,%22params%22:%22%5B%5D%22,%22type%22:%22java%22,%22namespace%22:%22blockly.TasksBusiness%22%7D" name="{{cronapi.util.Operations.callBlockly}}"/>
+                              </block>
+                            </value>
+                            <next>
+                              <block colour="#934848" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="/xw0HpkD=N.^?x6rbS=y" multilayer="true" namespace="cronapi.screen.notify" origintype="notify_type" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3EName:%3C/strong%3E%3Cdiv%3EShow%20notification%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescription:%3C/strong%3E%3Cdiv%3EFunction%20that%20show%20a%20notification%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParameters:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Notification%20type%20:%20String%3C/span%3E%3Cdiv%3E%20Can%20receive%20values%20success,%20error,%20warning,%20info%20or%20primary%3C/div%3E%3Cspan%3E%20-%20Message%20:%20String%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EHelp:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.notify%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.notify%3C/a%3E%3C/div%3E%3C/div%3E" type="notify_type">
+                                <mutation name="{{cronapi.screen.notify}}" value="[object Object]"/>
+                                <field name="SELECT">success</field>
+                                <value name="MESSAGE">
+                                  <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="#pB|$CjDETug$$JE|O$C" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                    <field name="TEXT">Tarefa atribuída</field>
+                                  </shadow>
+                                  <block colour="#5ba58c" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="BoyTxy;r4.lFMLSu@hgd" origintype="text_join" output="true" tooltip="Create a piece of text by joining together any number of items." type="text_join">
+                                    <mutation items="2"/>
+                                    <value name="ADD0">
+                                      <block colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="u4^Fn:tI/]p*{4Q|=mF{" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                        <field name="TEXT">Tarefa atribuida. Recarregue a página. ID da tarefa:</field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block colour="#934848" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="Yh;Rn%T2acjG2`KJ;DUm" multilayer="false" namespace="cronapi.screen.Operations.getValueOfField" origintype="procedures_callreturn" output="true" returntype="ObjectType.JSON" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3EName:%3C/strong%3E%3Cdiv%3EGet%20field%20value%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescription:%3C/strong%3E%3Cdiv%3EFunction%20that%20get%20field%20value%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParameters:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Field%20:%20String%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3EReturn:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EHelp:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                                        <mutation name="{{cronapi.screen.Operations.getValueOfField}}">
+                                          <arg cronapi-type="ObjectType.STRING" name="Field"/>
+                                        </mutation>
+                                        <value name="ARG0">
+                                          <block colour="#934848" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="]300!tOq:Y3K1J=?Vq_o" origintype="form_fieldscreen_callreturn" output="true" type="form_fieldscreen_callreturn">
+                                            <field name="SELECT">Task.active.id</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
                       </block>
                     </next>
                   </block>
@@ -119,5 +184,8 @@
         <field name="TEXT">ToDo</field>
       </block>
     </value>
+  </block>
+  <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="4F!gu3_FCz%|i.Y-^$}9" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get" x="-23" y="40">
+    <field name="VAR">me</field>
   </block>
 </blockly>
