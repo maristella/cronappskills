@@ -3,8 +3,10 @@
     <persistence-unit name="app" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <non-jta-data-source>java:comp/env/jdbc/CronAppSkills1</non-jta-data-source>
+        <class>app.entity.Task</class>
         <class>app.entity.SkillCat</class>
         <class>app.entity.Skill</class>
+        <class>app.entity.Project</class>
         <class>app.entity.UserSkills</class>
         <class>app.entity.User</class>
         <class>app.entity.Role</class>

@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import cronapi.rest.security.CronappSecurity;
+import cronapi.CronapiCloud;
 
 
 /**
@@ -36,7 +37,7 @@ public class UserSkills implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "cronuser_email", nullable = true, unique = false, insertable=true, updatable=true)
+  @Column(name = "cronuser_email", nullable = false, unique = false, insertable=true, updatable=true)
   
   private java.lang.String cronuser_email;
 
@@ -51,9 +52,17 @@ public class UserSkills implements Serializable {
   * @generated
   */
   @ManyToOne
-  @JoinColumn(name="fk_skill", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  @JoinColumn(name="fk_skill", nullable = false, referencedColumnName = "id", insertable=true, updatable=true)
   
   private Skill skill;
+
+  /**
+  * @generated
+  */
+  @Column(name = "attachment", nullable = true, unique = false, insertable=true, updatable=true)
+  @CronapiCloud(type = "dropbox", value="nownu5UgiJAAAAAAAAAAB3WIJx1-szMwBAcOKxuiqrP4Ee355jETd5B4PP9FoVxi")
+  
+  private java.lang.String attachment;
 
   /**
    * Construtor
@@ -140,6 +149,26 @@ public class UserSkills implements Serializable {
    */
   public UserSkills setSkill(Skill skill){
     this.skill = skill;
+    return this;
+  }
+
+  /**
+   * Obtém attachment
+   * return attachment
+   * @generated
+   */
+  
+  public java.lang.String getAttachment(){
+    return this.attachment;
+  }
+
+  /**
+   * Define attachment
+   * @param attachment attachment
+   * @generated
+   */
+  public UserSkills setAttachment(java.lang.String attachment){
+    this.attachment = attachment;
     return this;
   }
 

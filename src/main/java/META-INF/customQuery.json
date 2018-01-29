@@ -480,5 +480,311 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/urrvo1ed5lr8/"
+	},
+	"vbbu0cshe2jm": {
+		"customId": "todotasks",
+		"queryName": "todotasks",
+		"screen": "src/main/webapp/views/logged/TodoTasks.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Task",
+		"entityFullName": "app.entity.Task",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Task",
+					"namespace": "app.entity.Task",
+					"alias": "t"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "t",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "t.status",
+						"field": "t.status",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":status",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": false,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "status",
+				"fieldValue": {
+					"blocklyClass": "blockly.TasksBusiness",
+					"blocklyMethod": "todo",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.TasksBusiness",
+						"classNameNew": "TasksBusiness",
+						"classNameOld": "TasksBusiness",
+						"sourcePath": "src/main/java/blockly/TasksBusiness.blockly",
+						"language": "java",
+						"class": "blockly.TasksBusiness",
+						"methods": [
+							{
+								"name": "assigned",
+								"hasReturn": "true",
+								"params": []
+							},
+							{
+								"name": "todo",
+								"hasReturn": "true",
+								"params": []
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.TasksBusiness:todo', null, null)"
+				}
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"title": null,
+			"description": null,
+			"price": null,
+			"cronappuser_email": null,
+			"assignmentDate": null,
+			"document": null,
+			"status": null,
+			"project": null
+		},
+		"security": {
+			"id": null,
+			"title": null,
+			"description": null,
+			"price": null,
+			"cronappuser_email": null,
+			"assignmentDate": null,
+			"document": null,
+			"status": null,
+			"project": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/vbbu0cshe2jm/"
+	},
+	"t84459ywot9z": {
+		"customId": "mytasks",
+		"queryName": "mytasks",
+		"screen": "src/main/webapp/views/logged/mytasks.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Task",
+		"entityFullName": "app.entity.Task",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Task",
+					"namespace": "app.entity.Task",
+					"alias": "t"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "t",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "t.status",
+						"field": "t.status",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":status",
+						"valueIsField": false
+					},
+					{
+						"id": "t.cronappuser_email",
+						"field": "t.cronappuser_email",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":cronappuser_email",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": false,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "status",
+				"fieldValue": {
+					"blocklyClass": "blockly.TasksBusiness",
+					"blocklyMethod": "assigned",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.TasksBusiness",
+						"classNameNew": "TasksBusiness",
+						"classNameOld": "TasksBusiness",
+						"sourcePath": "src/main/java/blockly/TasksBusiness.blockly",
+						"language": "java",
+						"class": "blockly.TasksBusiness",
+						"methods": [
+							{
+								"name": "assigned",
+								"hasReturn": "true",
+								"params": []
+							},
+							{
+								"name": "todo",
+								"hasReturn": "true",
+								"params": []
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.TasksBusiness:assigned', null, null)"
+				}
+			},
+			{
+				"fieldName": "cronappuser_email",
+				"fieldValue": {
+					"blocklyClass": "blockly.UserSkillsBusiness",
+					"blocklyMethod": "getEmailfromLoggedUser",
+					"blocklyLanguage": "java",
+					"blocklyJson": {
+						"namespace": "blockly.UserSkillsBusiness",
+						"classNameNew": "UserSkillsBusiness",
+						"classNameOld": "UserSkillsBusiness",
+						"sourcePath": "src/main/java/blockly/UserSkillsBusiness.blockly",
+						"language": "java",
+						"class": "blockly.UserSkillsBusiness",
+						"methods": [
+							{
+								"name": "checkDuplicate",
+								"hasReturn": "true",
+								"params": [
+									"Entidade<app.entity.UserSkills>"
+								]
+							},
+							{
+								"name": "getEmailfromLoggedUser",
+								"hasReturn": "true",
+								"params": []
+							}
+						]
+					},
+					"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.UserSkillsBusiness:getEmailfromLoggedUser', null, null)"
+				}
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"title": null,
+			"description": null,
+			"price": null,
+			"cronappuser_email": null,
+			"assignmentDate": null,
+			"document": null,
+			"status": null,
+			"project": null
+		},
+		"security": {
+			"id": null,
+			"title": null,
+			"description": null,
+			"price": null,
+			"cronappuser_email": null,
+			"assignmentDate": null,
+			"document": null,
+			"status": null,
+			"project": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/t84459ywot9z/"
 	}
 }

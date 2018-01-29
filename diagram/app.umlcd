@@ -695,16 +695,17 @@
         "id:java.lang.String",
         "cronuser_email:java.lang.String",
         "level:java.lang.Integer",
-        "skill:Skill"
+        "skill:Skill",
+        "attachment:File Upload (to Dropbox)"
       ],
       "methods": [],
       "position": {
-        "x": 294.0000305175781,
-        "y": 50.00000762939453
+        "x": 269,
+        "y": 32
       },
       "size": {
-        "width": 209.25,
-        "height": 129.4954833984375
+        "width": 247.703125,
+        "height": 140.37017059326172
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -754,7 +755,7 @@
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
-          "isNullable": true,
+          "isNullable": false,
           "pkType": "",
           "multitenantContext": "",
           "jsonIgnore": false,
@@ -800,6 +801,29 @@
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "attachment",
+          "type": "File Upload (to Dropbox)",
+          "dbName": "attachment",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Attachment",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
           "isNullable": true,
           "pkType": "",
           "multitenantContext": "",
@@ -814,6 +838,11 @@
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
       "z": 14,
+      "cloudStorage": {
+        "name": "Dropbox",
+        "accessToken": "nownu5UgiJAAAAAAAAAAB3WIJx1-szMwBAcOKxuiqrP4Ee355jETd5B4PP9FoVxi",
+        "clearDatabaseRecord": false
+      },
       "attrs": {
         "rect": {
           "stroke": "yellow",
@@ -824,12 +853,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 110,
+          "height": 130,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,160)"
+          "transform": "translate(0,180)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -839,12 +868,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\ncronuser_email\nlevel\nskill\n"
+          "text": "id\ncronuser_email\nlevel\nskill\nattachment\n"
         },
         ".uml-class-attrs-value": {
           "ref-x": 109.109375,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.Integer\nSkill\n"
+          "text": "java.lang.String\njava.lang.String\njava.lang.Integer\nSkill\nFile Upload (to Dropbox)\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -936,6 +965,504 @@
           "fill": "#cecece"
         }
       }
+    },
+    {
+      "type": "uml.Class",
+      "name": "Project",
+      "attributes": [
+        "id:java.lang.String",
+        "title:java.lang.String",
+        "description:java.lang.String",
+        "document:File Upload (to Dropbox)"
+      ],
+      "methods": [],
+      "position": {
+        "x": 299.0000305175781,
+        "y": 231
+      },
+      "size": {
+        "width": 227.390625,
+        "height": 129.4954833984375
+      },
+      "angle": 0,
+      "multitenantContextJsonIgnore": "false",
+      "multitenantContextIgnoreEntities": "",
+      "role": "Auto",
+      "queries": [],
+      "tableName": null,
+      "tableScheme": null,
+      "isRest": "true",
+      "multitenantContext": "",
+      "restSecurity": null,
+      "restPath": "",
+      "id": "2bd2136b-c193-4b10-b0de-1aac8bc4bc8e",
+      "fields": [
+        {
+          "name": "id",
+          "type": "java.lang.String",
+          "dbName": "id",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
+          "label": "Id",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "UUID",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "title",
+          "type": "java.lang.String",
+          "dbName": "title",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Title",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "description",
+          "type": "java.lang.String",
+          "dbName": "description",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Description",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "document",
+          "type": "File Upload (to Dropbox)",
+          "dbName": "document",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Document",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        }
+      ],
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "z": 17,
+      "cloudStorage": {
+        "name": "Dropbox",
+        "accessToken": "nownu5UgiJAAAAAAAAAAB3WIJx1-szMwBAcOKxuiqrP4Ee355jETd5B4PP9FoVxi",
+        "clearDatabaseRecord": false
+      },
+      "attrs": {
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-attrs-rect": {
+          "height": 110,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,160)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "text": "Project",
+          "font-weight": "bold"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\ntitle\ndescription\ndocument\n"
+        },
+        ".uml-class-attrs-value": {
+          "ref-x": 88.796875,
+          "font-size": 11,
+          "text": "java.lang.String\njava.lang.String\njava.lang.String\nFile Upload (to Dropbox)\n"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": ""
+        }
+      }
+    },
+    {
+      "type": "uml.Class",
+      "name": "Task",
+      "attributes": [
+        "id:java.lang.String",
+        "title:java.lang.String",
+        "description:java.lang.String",
+        "price:java.lang.Double",
+        "cronappuser_email:java.lang.String",
+        "assignmentDate:java.sql.Timestamp",
+        "document:File Upload (to Dropbox)",
+        "status:java.lang.String",
+        "project:Project"
+      ],
+      "methods": [],
+      "position": {
+        "x": 282,
+        "y": 452
+      },
+      "size": {
+        "width": 267.15625,
+        "height": 184.04177856445312
+      },
+      "angle": 0,
+      "multitenantContextJsonIgnore": "false",
+      "multitenantContextIgnoreEntities": "",
+      "role": "Auto",
+      "queries": [],
+      "tableName": null,
+      "tableScheme": null,
+      "isRest": "true",
+      "multitenantContext": "",
+      "restSecurity": null,
+      "restPath": "",
+      "id": "1cc586ba-cb32-4059-b70c-0658881a5bd5",
+      "fields": [
+        {
+          "name": "id",
+          "type": "java.lang.String",
+          "dbName": "id",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
+          "label": "Id",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "UUID",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "title",
+          "type": "java.lang.String",
+          "dbName": "title",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Title",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "description",
+          "type": "java.lang.String",
+          "dbName": "description",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Description",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "price",
+          "type": "java.lang.Double",
+          "dbName": "price",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Price",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "cronappuser_email",
+          "type": "java.lang.String",
+          "dbName": "cronappuser_email",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Cronappuser _email",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "assignmentDate",
+          "type": "java.sql.Timestamp",
+          "dbName": "assignmentDate",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Assignment Date",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "document",
+          "type": "File Upload (to Dropbox)",
+          "dbName": "document",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Document",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "status",
+          "type": "java.lang.String",
+          "dbName": "status",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Status",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "dbName": "fk_project",
+          "label": "",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "multitenantContext": "",
+          "pkType": "",
+          "isIgnore": false,
+          "isTransien": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        }
+      ],
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "z": 18,
+      "cloudStorage": {
+        "name": "Dropbox",
+        "accessToken": "nownu5UgiJAAAAAAAAAAB3WIJx1-szMwBAcOKxuiqrP4Ee355jETd5B4PP9FoVxi",
+        "clearDatabaseRecord": false
+      },
+      "attrs": {
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-attrs-rect": {
+          "height": 210,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,260)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "text": "Task",
+          "font-weight": "bold"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\ntitle\ndescription\nprice\ncronappuser_email\nassignmentDate\ndocument\nstatus\nproject\n"
+        },
+        ".uml-class-attrs-value": {
+          "ref-x": 128.5625,
+          "font-size": 11,
+          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.Double\njava.lang.String\njava.sql.Timestamp\nFile Upload (to Dropbox)\njava.lang.String\nProject\n"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": ""
+        }
+      }
+    },
+    {
+      "type": "uml.Composition",
+      "relationFields": [
+        "project:target"
+      ],
+      "name": null,
+      "id": "f3ea61c9-02fa-4bd4-8e94-24d6e49caba9",
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "target": {
+        "id": "1cc586ba-cb32-4059-b70c-0658881a5bd5"
+      },
+      "source": {
+        "id": "2bd2136b-c193-4b10-b0de-1aac8bc4bc8e"
+      },
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "rect": {
+              "fill": "transparent"
+            },
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            }
+          }
+        }
+      ],
+      "z": 19,
+      "attrs": {
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        }
+      }
     }
   ],
   "selectedGroup": "1d7f906f-a526-482d-aaf4-08d227ae8c18",
@@ -952,11 +1479,13 @@
       "name": "",
       "id": "1d7f906f-a526-482d-aaf4-08d227ae8c18",
       "cells": [
+        "2bd2136b-c193-4b10-b0de-1aac8bc4bc8e",
         "1877d140-2191-4ceb-aebe-e4ba2affe287",
         "d2e50f97-0b9e-4037-94ba-af64568af247",
         "bb1b3847-76aa-45cd-ad4b-b51f419b33f0",
         "1df87f56-c5ba-47f5-8e68-82931f49b989",
-        "c4280476-e086-44a8-bf86-b36a9e1948a6"
+        "c4280476-e086-44a8-bf86-b36a9e1948a6",
+        "1cc586ba-cb32-4059-b70c-0658881a5bd5"
       ]
     }
   ]

@@ -107,5 +107,16 @@
   "InsertSkill": "Click here to add a new skill",
   "UserSkillsAll": "Skills of all users",
   "CronAppUserEmail": "CronApp user email",
-  "Skills": "Skills"
+  "Skills": "Skills",
+  "Project": "Project",
+  "Task": "Task",
+  "Attachment": "Attachment",
+  "Status": "Status",
+  "TodoTasks": "Open Todo Tasks",
+  "Details": "Details",
+  "AssignToMe": "Assign to Me!",
+  "TaskDetails": "Task Details",
+  "ProjectDetails": "Project Details",
+  "FindTasks": "Find New Tasks",
+  "MyTasks": "My Tasks"
 }

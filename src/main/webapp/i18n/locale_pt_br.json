@@ -107,5 +107,16 @@
   "InsertSkill": "Clique aqui para incluir uma nova habilidade",
   "UserSkillsAll": "Habilidades de todos os usuários",
   "CronAppUserEmail": "e-mail do usuário CronApp",
-  "Skills": "Competências"
+  "Skills": "Competências",
+  "Project": "Projeto",
+  "Task": "Tarefa",
+  "Attachment": "Anexo",
+  "Status": "Situação",
+  "TodoTasks": "Tarefas a fazer - em aberto",
+  "Details": "Detalhes",
+  "AssignToMe": "Atribuir a Mim!",
+  "TaskDetails": "Detalhes Da Tarefa",
+  "ProjectDetails": "Detalhes Do Projeto",
+  "FindTasks": "Encontrar Novas Tarefas",
+  "MyTasks": "Minhas Tarefas"
 }

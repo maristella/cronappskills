@@ -10,6 +10,7 @@ import java.util.TimeZone;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
+	
 	"cronapp.framework.authentication.token",
 	"cronapp.framework.authentication.security",
 	"cronapp.framework.rest",
