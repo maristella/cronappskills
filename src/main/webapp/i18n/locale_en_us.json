@@ -109,7 +109,6 @@
   "CronAppUserEmail": "CronApp user email",
   "Skills": "Skills",
   "Project": "Project",
-  "Task": "Task",
   "Attachment": "Attachment",
   "Status": "Status",
   "TodoTasks": "Open Todo Tasks",
@@ -118,5 +117,11 @@
   "TaskDetails": "Task Details",
   "ProjectDetails": "Project Details",
   "FindTasks": "Find New Tasks",
-  "MyTasks": "My Tasks"
+  "MyTasks": "My Tasks",
+  "ReqTasks": "Requested Tasks",
+  "ConfAtrib": "Confirm Assignemt",
+  "Requester": "Requester",
+  "Task": "Column Header 2",
+  "Tasks": "",
+  "AllTasks": "All Tasks"
 }

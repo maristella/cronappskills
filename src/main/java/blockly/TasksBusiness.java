@@ -19,7 +19,7 @@ public class TasksBusiness {
 		return new Callable<Var>() {
 
 			private Var me = Var.VAR_NULL;
-			private Var data = Var.VAR_NULL;
+			private Var listaStatus = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				return Var.valueOf("ToDo");
@@ -34,17 +34,16 @@ public class TasksBusiness {
 		new Callable<Var>() {
 
 			private Var me = Var.VAR_NULL;
-			private Var data = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				me = blockly.UserSkillsBusiness.getEmailfromLoggedUser();
-				System.out.println(Var.valueOf(Var.valueOf("I am").toString() + me.toString()).getObjectAsString());
-				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.changeValueOfField"),
-						Var.valueOf("Task.active.cronappuser_email"), Var.VAR_NULL);
-				data = cronapi.database.Operations.query(Var.valueOf("app.entity.Task"),
-						Var.valueOf("select t from Task t where t.id = :id"),
+				System.out.println(Var.valueOf(Var.valueOf("I am ").toString() + me.toString()).getObjectAsString());
+				cronapi.database.Operations.execute(Var.valueOf("app.entity.Task"),
+						Var.valueOf(
+								"update Task set status = :status, cronappuser_email = :cronappuser_email where id = :id"),
+						Var.valueOf("status", requested()), Var.valueOf("cronappuser_email", me),
 						Var.valueOf("id", cronapi.screen.Operations.getValueOfField(Var.valueOf("Task.active.id"))));
-				cronapi.database.Operations.updateField(data, Var.valueOf("assigned"), Var.valueOf("Assigned"));
+				System.out.println(Var.valueOf("fim").getObjectAsString());
 				return Var.VAR_NULL;
 			}
 		}.call();
@@ -59,10 +58,49 @@ public class TasksBusiness {
 		return new Callable<Var>() {
 
 			private Var me = Var.VAR_NULL;
-			private Var data = Var.VAR_NULL;
+			private Var listaStatus = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				return Var.valueOf("Assigned");
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Describe this function...
+	public static Var requested() throws Exception {
+		return new Callable<Var>() {
+
+			private Var me = Var.VAR_NULL;
+			private Var listaStatus = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				return Var.valueOf("Requested");
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Describe this function...
+	public static Var status_list() throws Exception {
+		return new Callable<Var>() {
+
+			private Var listaStatus = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				listaStatus = cronapi.list.Operations.newList(
+						cronapi.map.Operations.createObjectMapWith(Var.valueOf("status", Var.valueOf("Todo"))),
+						cronapi.map.Operations.createObjectMapWith(Var.valueOf("status", Var.valueOf("Requested\n"))),
+						cronapi.map.Operations.createObjectMapWith(Var.valueOf("status", Var.valueOf("Assigned"))),
+						cronapi.map.Operations.createObjectMapWith(Var.valueOf("status", Var.valueOf("Done"))));
+				System.out.println(listaStatus.getObjectAsString());
+				return listaStatus;
 			}
 		}.call();
 	}
