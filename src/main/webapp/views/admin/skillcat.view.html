@@ -1,4 +1,4 @@
-<h3>SkillCat</h3>
+<h3>{{'SkillCat' | translate}}</h3>
 
 <!-- div row para pesquisa -->
 <!--<div class="row">-->
@@ -23,7 +23,7 @@
             <thead>
             <tr class="table-header">
                 <th class="">
-                    <div class="">Category</div>
+                    <div class="">{{'Category' | translate}}</div>
                 </th>
                 <th class="">
                     <div class="">{{"template.crud.actions" | translate}}</div>
@@ -65,22 +65,14 @@
                 <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
                 <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
-            <br/>
+            <br>
             <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
 
                 <div data-component="crn-textinput" id="crn-textinput-category" class="">
                     <div class="form-group">
-                        <label for="textinput-category" class="">Category</label>
+                        <label for="{{'Category' | translate}}" class="">{{'Category' | translate}}</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input
-                                            type="text"
-                                            ng-model="SkillCat.active.category"
-                                            class="form-control"
-                                            id="textinput-category"
-                                            placeholder="Category"
-                                            mask=""
-                                            mask-placeholder=""
-                                            ng-required="false">
+                                <input type="text" ng-model="SkillCat.active.category" class="form-control" id="textinput-category" placeholder="Category" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>

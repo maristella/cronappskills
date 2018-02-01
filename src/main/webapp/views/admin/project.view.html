@@ -1,4 +1,4 @@
-<h3>Project</h3>
+<h3>{{'Project' | translate}}</h3>
 
 <!-- div row para pesquisa -->
 <!--<div class="row">-->
@@ -23,10 +23,10 @@
             <thead>
             <tr class="table-header">
                 <th class="">
-                    <div class="">Title</div>
+                    <div class="">{{'Title' | translate}}</div>
                 </th>
                 <th class="">
-                    <div class="">Document</div>
+                    <div class="">{{'Specs' | translate}}</div>
                 </th>
                 <th class="">
                     <div class="">{{"template.crud.actions" | translate}}</div>
@@ -75,48 +75,32 @@
                 <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
                 <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
-            <br/>
+            <br>
             <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
 
                 <div data-component="crn-textinput" id="crn-textinput-title" class="">
                     <div class="form-group">
-                        <label for="textinput-title" class="">Title</label>
+                        <label for="textinput-title" class="">{{'Title' | translate}}</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input
-                                            type="text"
-                                            ng-model="Project.active.title"
-                                            class="form-control"
-                                            id="textinput-title"
-                                            placeholder="Title"
-                                            mask=""
-                                            mask-placeholder=""
-                                            ng-required="true">
+                                <input type="text" ng-model="Project.active.title" class="form-control" id="textinput-title" placeholder="Title" mask="" mask-placeholder="" ng-required="true">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
 
                 <div data-component="crn-textinput" id="crn-textinput-description" class="">
                     <div class="form-group">
-                        <label for="textinput-description" class="">Description</label>
+                        <label for="textinput-description" class="">{{'Description' | translate}}</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input
-                                            type="text"
-                                            ng-model="Project.active.description"
-                                            class="form-control"
-                                            id="textinput-description"
-                                            placeholder="Description"
-                                            mask=""
-                                            mask-placeholder=""
-                                            ng-required="true">
+                                <input type="text" ng-model="Project.active.description" class="form-control" id="textinput-description" placeholder="Description" mask="" mask-placeholder="" ng-required="true">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
 
                 <div data-component="crn-dynamic-file" id="crn-textinput-document" class="">
                     <div class="form-group">
-                        <label for="textinput-document" class="">Document</label>
+                        <label for="textinput-document" class="">{{'Specs' | translate}}</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <div dynamic-file ng-model="Project.active.document" max-file-size="5MB" class="dynamic-image-container" ng-required="false">
+                                <div dynamic-file="" ng-model="Project.active.document" max-file-size="5MB" class="dynamic-image-container" ng-required="false">
                                   {{"template.crud.clickOrDragAnFile" | translate}}
                                 </div>
                          <!-- end if !model.hasCronappFramework() -->

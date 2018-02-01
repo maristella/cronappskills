@@ -159,16 +159,17 @@
         "login:java.lang.String",
         "picture:java.lang.String",
         "password:java.lang.String",
-        "theme:java.lang.String"
+        "theme:java.lang.String",
+        "resume:File Upload (to Dropbox)"
       ],
       "methods": [],
       "position": {
         "x": 32,
-        "y": 25
+        "y": 25.000003814697266
       },
       "size": {
-        "width": 175.875,
-        "height": 162.1875
+        "width": 221.28125,
+        "height": 173.1056137084961
       },
       "angle": 0,
       "isRest": true,
@@ -338,6 +339,29 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
+        },
+        {
+          "name": "resume",
+          "type": "File Upload (to Dropbox)",
+          "dbName": "curriculo",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Resume",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
         }
       ],
       "role": "Class",
@@ -347,6 +371,11 @@
         "post": "Administrators",
         "put": "Administrators",
         "delete": "Administrators"
+      },
+      "cloudStorage": {
+        "name": "Dropbox",
+        "accessToken": "nownu5UgiJAAAAAAAAAAD-9ajgHstcXiLarK3lwH0gE6KOyEIQoxgGuhr2wqkXE2",
+        "clearDatabaseRecord": false
       },
       "attrs": {
         "rect": {
@@ -358,12 +387,12 @@
           "transform": "translate(0,0)"
         },
         ".uml-class-attrs-rect": {
-          "height": 170,
+          "height": 190,
           "transform": "translate(0,50)"
         },
         ".uml-class-methods-rect": {
           "height": 30,
-          "transform": "translate(0,220)"
+          "transform": "translate(0,240)"
         },
         ".uml-class-name-text": {
           "fill": "#000",
@@ -373,12 +402,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "email\nname\nid\nlogin\npicture\npassword\ntheme\n"
+          "text": "email\nname\nid\nlogin\npicture\npassword\ntheme\nresume\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 82.0625,
+          "ref-x": 82.6875,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\n"
+          "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\nFile Upload (to Dropbox)\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -444,12 +473,12 @@
       ],
       "methods": [],
       "position": {
-        "x": 586,
+        "x": 588,
         "y": 189
       },
       "size": {
-        "width": 164.203125,
-        "height": 118.65808868408203
+        "width": 164.09375,
+        "height": 118.65027618408203
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -560,7 +589,7 @@
           "text": "id\nskill\nskillCat\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 70.390625,
+          "ref-x": 69.6875,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\nSkillCat\n"
         },
@@ -700,8 +729,8 @@
       ],
       "methods": [],
       "position": {
-        "x": 269,
-        "y": 32
+        "x": 296,
+        "y": 17
       },
       "size": {
         "width": 247.703125,
@@ -977,8 +1006,8 @@
       ],
       "methods": [],
       "position": {
-        "x": 299.0000305175781,
-        "y": 231
+        "x": 316,
+        "y": 230
       },
       "size": {
         "width": 227.390625,
@@ -1152,12 +1181,12 @@
       ],
       "methods": [],
       "position": {
-        "x": 282,
-        "y": 452
+        "x": 285,
+        "y": 402
       },
       "size": {
         "width": 267.15625,
-        "height": 184.04177856445312
+        "height": 184.04176330566406
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -1463,6 +1492,247 @@
           "fill": "#cecece"
         }
       }
+    },
+    {
+      "type": "uml.Class",
+      "name": "TaskSkills",
+      "attributes": [
+        "id:java.lang.String",
+        "level:java.lang.Integer",
+        "task:Task",
+        "skill:Skill"
+      ],
+      "methods": [],
+      "position": {
+        "x": 636,
+        "y": 451
+      },
+      "size": {
+        "width": 157.84375,
+        "height": 129.4954833984375
+      },
+      "angle": 0,
+      "multitenantContextJsonIgnore": "false",
+      "multitenantContextIgnoreEntities": "",
+      "role": "Auto",
+      "queries": [],
+      "tableName": null,
+      "tableScheme": null,
+      "isRest": "true",
+      "multitenantContext": "",
+      "restSecurity": null,
+      "restPath": "",
+      "id": "12695e75-8bf5-47ea-ab99-1e9bf78ffe82",
+      "fields": [
+        {
+          "name": "id",
+          "type": "java.lang.String",
+          "dbName": "id",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "UUID.randomUUID().toString().toUpperCase()",
+          "label": "Id",
+          "mask": "",
+          "isPrimaryKey": true,
+          "isUniqueKey": false,
+          "isNullable": false,
+          "pkType": "UUID",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "level",
+          "type": "java.lang.Integer",
+          "dbName": "level",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Level",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "task",
+          "type": "Task",
+          "dbName": "fk_task",
+          "label": "",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "multitenantContext": "",
+          "pkType": "",
+          "isIgnore": false,
+          "isTransien": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        },
+        {
+          "name": "skill",
+          "type": "Skill",
+          "dbName": "fk_skill",
+          "label": "",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "multitenantContext": "",
+          "pkType": "",
+          "isIgnore": false,
+          "isTransien": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
+        }
+      ],
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "z": 20,
+      "attrs": {
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-attrs-rect": {
+          "height": 110,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,160)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "text": "TaskSkills",
+          "font-weight": "bold"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": "id\nlevel\ntask\nskill\n"
+        },
+        ".uml-class-attrs-value": {
+          "ref-x": 57.703125,
+          "font-size": 11,
+          "text": "java.lang.String\njava.lang.Integer\nTask\nSkill\n"
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": ""
+        }
+      }
+    },
+    {
+      "type": "uml.Composition",
+      "relationFields": [
+        "task:target"
+      ],
+      "name": null,
+      "id": "cbca840d-e84d-4049-acff-1c8e5086c581",
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "target": {
+        "id": "12695e75-8bf5-47ea-ab99-1e9bf78ffe82"
+      },
+      "source": {
+        "id": "1cc586ba-cb32-4059-b70c-0658881a5bd5"
+      },
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "rect": {
+              "fill": "transparent"
+            },
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            }
+          }
+        }
+      ],
+      "z": 21,
+      "attrs": {
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        }
+      }
+    },
+    {
+      "type": "uml.Composition",
+      "relationFields": [
+        "skill:target"
+      ],
+      "name": null,
+      "id": "92ecba93-4d99-4d11-a29b-bbbab642f78d",
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "target": {
+        "id": "12695e75-8bf5-47ea-ab99-1e9bf78ffe82"
+      },
+      "source": {
+        "id": "bb1b3847-76aa-45cd-ad4b-b51f419b33f0"
+      },
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "rect": {
+              "fill": "transparent"
+            },
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            }
+          }
+        }
+      ],
+      "z": 22,
+      "attrs": {
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        }
+      }
     }
   ],
   "selectedGroup": "1d7f906f-a526-482d-aaf4-08d227ae8c18",
@@ -1484,6 +1754,7 @@
         "d2e50f97-0b9e-4037-94ba-af64568af247",
         "bb1b3847-76aa-45cd-ad4b-b51f419b33f0",
         "1df87f56-c5ba-47f5-8e68-82931f49b989",
+        "12695e75-8bf5-47ea-ab99-1e9bf78ffe82",
         "c4280476-e086-44a8-bf86-b36a9e1948a6",
         "1cc586ba-cb32-4059-b70c-0658881a5bd5"
       ]

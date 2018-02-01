@@ -1,4 +1,4 @@
-<h3>Task</h3> 
+<h3>{{'Task' | translate}}</h3> 
 <!-- div row para pesquisa --> 
 <!--<div class="row">--> 
 <div ng-hide="Task.inserting || Task.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class=""> 
@@ -13,35 +13,23 @@
 <!-- fim div row para pesquisa --> 
 <!--</div>--> 
 <datasource filter="" name="Task" entity="api/cronapi/crud/app.entity.Task" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource> 
-<div class="component-holder" data-component="crn-grid" id="crn-grid-Task"> 
+<div class="component-holder" data-component="crn-grid" id="crn-grid-Task" cronapp-security=""> 
   <div crn-datasource="Task" class="" ng-hide="Task.editing || Task.inserting"> 
     <table class="table  table-bordered table-hover table-striped"> 
       <thead> 
         <tr class="table-header"> 
           <th class=""> 
-            <div class="">
-              Title
-            </div> </th> 
+            <div class="">{{'Title' | translate}}</div> </th> 
           <th class=""> 
-            <div class="">
-              Price
-            </div> </th> 
+            <div class="">{{'Price' | translate}}</div> </th> 
           <th class=""> 
-            <div class="">
-              Cronappuser _email
-            </div> </th> 
+            <div class="">{{'User' | translate}}</div> </th> 
           <th class=""> 
-            <div class="">
-              Assignment Date
-            </div> </th> 
+            <div class="">{{'AssignmentDate' | translate}}</div> </th> 
           <th class=""> 
-            <div class="">
-              Status
-            </div> </th> 
+            <div class="">{{'Status' | translate}}</div> </th> 
           <th class=""> 
-            <div class="">
-              Project
-            </div> </th> 
+            <div class="">{{'Project' | translate}}</div> </th> 
           <th class=""> 
             <div class="">
               {{"template.crud.actions" | translate}}
@@ -106,7 +94,7 @@
         <datasource name="Project" entity="api/cronapi/crud/app.entity.Project" keys="id" class="" dependent-by="{{Task}}"></datasource>
         <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-project" class=""> 
           <div class="form-group"> 
-            <label for="combobox-dynamic-project" class="">Project</label> 
+            <label for="combobox-dynamic-project" class="">{{'Project' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
             <ui-select ng-model="Task.active.project" crn-datasource="Project" class="crn-select" id="combobox-dynamic-project" ng-required="false" theme="bootstrap"> 
               <ui-select-match class="" placeholder="Select...">
@@ -123,7 +111,7 @@
         </div>
         <div data-component="crn-textinput" id="crn-textinput-title" class=""> 
           <div class="form-group"> 
-            <label for="textinput-title" class="">Title</label> 
+            <label for="textinput-title" class="">{{'Title' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
             <input type="text" ng-model="Task.active.title" class="form-control" id="textinput-title" placeholder="Title" mask="" mask-placeholder="" ng-required="false"> 
             <!-- end if !model.hasCronappFramework() --> 
@@ -131,7 +119,7 @@
         </div> 
         <div data-component="crn-textinput" id="crn-textinput-description" class=""> 
           <div class="form-group"> 
-            <label for="textinput-description" class="">Description</label> 
+            <label for="textinput-description" class="">{{'Description' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
             <input type="text" ng-model="Task.active.description" class="form-control" id="textinput-description" placeholder="Description" mask="" mask-placeholder="" ng-required="false"> 
             <!-- end if !model.hasCronappFramework() --> 
@@ -139,7 +127,7 @@
         </div> 
         <div data-component="crn-textinput" id="crn-textinput-price" class=""> 
           <div class="form-group"> 
-            <label for="textinput-price" class="">Price</label> 
+            <label for="textinput-price" class="">{{'Price' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
             <input type="number" ng-model="Task.active.price" class="form-control" id="textinput-price" placeholder="Price" mask="" mask-placeholder="" ng-required="false"> 
             <!-- end if !model.hasCronappFramework() --> 
@@ -147,7 +135,7 @@
         </div> 
         <div data-component="crn-dynamic-file" id="crn-textinput-document" class=""> 
           <div class="form-group"> 
-            <label for="textinput-document" class="">Document</label> 
+            <label for="textinput-document" class="">{{'Document' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
             <div dynamic-file="" ng-model="Task.active.document" max-file-size="5MB" class="dynamic-image-container" ng-required="false">
                {{"template.crud.clickOrDragAnFile" | translate}} 
@@ -159,7 +147,7 @@
         
         <div data-component="crn-textinput" id="crn-textinput-cronappuser_email" class=""> 
           <div class="form-group"> 
-            <label for="textinput-cronappuser_email" class="">Cronappuser _email</label> 
+            <label for="textinput-cronappuser_email" class="">{{'User' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
             <input type="text" ng-model="Task.active.cronappuser_email" class="form-control" id="textinput-cronappuser_email" placeholder="Cronappuser _email" mask="" mask-placeholder="" ng-required="false"> 
             <!-- end if !model.hasCronappFramework() --> 
@@ -167,7 +155,7 @@
         </div> 
         <div data-component="crn-textinput" id="crn-textinput-assignmentDate" class=""> 
           <div class="form-group"> 
-            <label for="textinput-assignmentDate" class="">Assignment Date</label> 
+            <label for="textinput-assignmentDate" class="">{{'AssignmentDate' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
             <input type="datetime" ng-model="Task.active.assignmentDate" class="form-control" id="textinput-assignmentDate" placeholder="Assignment Date" mask="" mask-placeholder="" ng-required="false"> 
             <!-- end if !model.hasCronappFramework() --> 

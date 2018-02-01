@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import cronapi.rest.security.CronappSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import cronapi.CronapiCloud;
 
 
 /**
@@ -82,6 +83,14 @@ public class User implements Serializable {
   @Column(name = "theme", nullable = true, unique = false, insertable=true, updatable=true)
   
   private java.lang.String theme;
+
+  /**
+  * @generated
+  */
+  @Column(name = "curriculo", nullable = true, unique = false, insertable=true, updatable=true)
+  @CronapiCloud(type = "dropbox", value="nownu5UgiJAAAAAAAAAAD-9ajgHstcXiLarK3lwH0gE6KOyEIQoxgGuhr2wqkXE2")
+  
+  private java.lang.String resume;
 
   /**
    * Construtor
@@ -229,6 +238,26 @@ public class User implements Serializable {
    */
   public User setTheme(java.lang.String theme){
     this.theme = theme;
+    return this;
+  }
+
+  /**
+   * Obtém resume
+   * return resume
+   * @generated
+   */
+  
+  public java.lang.String getResume(){
+    return this.resume;
+  }
+
+  /**
+   * Define resume
+   * @param resume resume
+   * @generated
+   */
+  public User setResume(java.lang.String resume){
+    this.resume = resume;
     return this;
   }
 

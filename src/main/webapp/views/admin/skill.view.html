@@ -1,4 +1,4 @@
-<h3>Skill</h3>
+<h3>{{'Skill' | translate}}</h3>
 
 <!-- div row para pesquisa -->
 <!--<div class="row">-->
@@ -23,10 +23,10 @@
             <thead>
             <tr class="table-header">
                 <th class="">
-                    <div class="">Skill</div>
+                    <div class="">{{'Skill' | translate}}</div>
                 </th>
                 <th class="">
-                    <div class="">SkillCat</div>
+                    <div class="">{{'SkillCat' | translate}}</div>
                 </th>
                 <th class="">
                     <div class="">{{"template.crud.actions" | translate}}</div>
@@ -73,22 +73,14 @@
                 <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
                 <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
-            <br/>
+            <br>
             <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
 
                 <div data-component="crn-textinput" id="crn-textinput-skill" class="">
                     <div class="form-group">
-                        <label for="textinput-skill" class="">Skill</label>
+                        <label for="textinput-skill" class="">{{'Skill' | translate}}</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input
-                                            type="text"
-                                            ng-model="Skill.active.skill"
-                                            class="form-control"
-                                            id="textinput-skill"
-                                            placeholder="Skill"
-                                            mask=""
-                                            mask-placeholder=""
-                                            ng-required="false">
+                                <input type="text" ng-model="Skill.active.skill" class="form-control" id="textinput-skill" placeholder="Skill" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -96,13 +88,13 @@
 
                 <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-skillCat" class="">
                     <div class="form-group">
-                        <label for="combobox-dynamic-skillCat" class="">SkillCat</label>
+                        <label for="combobox-dynamic-skillCat" class="">{{'SkillCat' | translate}}</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <ui-select ng-model="Skill.active.skillCat" crn-datasource="Skillcat" class="crn-select" id="combobox-dynamic-skillCat" ng-required="false" theme="bootstrap">
                                     <ui-select-match class="" placeholder="Select...">
                                         {{$select.selected.category}}
                                     </ui-select-match>
-                                    <ui-select-choices  repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
                                         <div class="" data-container="true">
                                             {{rowData.category}}
                                         </div>
