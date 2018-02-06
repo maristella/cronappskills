@@ -5,7 +5,7 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr class="table-header">
-          <th class="active">
+          <th class="">
             <div data-container="true">
               {{'Task' | translate}}
             </div></th>
@@ -14,14 +14,12 @@
               {{'Project' | translate}}
             </div></th>
           <th class="">
-            <div data-container="true">
-              {{'AssignToMe' | translate}}
-            </div></th>
+            <div data-container="true">{{'AssignToMe' | translate}}</div></th>
         </tr>
       </thead>
       <tbody>
         <tr class="table-content" ng-repeat="rowData in datasource.data">
-          <td class="active">
+          <td class="">
             <div data-container="true">
               {{rowData.title}}
               <button class="btn btn-default component-holder" type="submit" ng-click="" xattr-size="" xattr-fullsize="" xattr-theme="btn-default" data-component="crn-button" id="crn-button-21612"><i class="glyphicon glyphicon-home"></i> <span>{{'TaskDetails' | translate}}</span></button>

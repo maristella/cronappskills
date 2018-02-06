@@ -109,9 +109,8 @@
   "Project": "Projeto",
   "Attachment": "Anexo",
   "Status": "Situação",
-  "TodoTasks": "Tarefas a fazer - em aberto",
+  "TodoTasks": "Buscar novas tarefas",
   "Details": "Detalhes",
-  "AssignToMe": "Atribuir a Mim!",
   "TaskDetails": "Detalhes Da Tarefa",
   "ProjectDetails": "Detalhes Do Projeto",
   "FindTasks": "Encontrar Novas Tarefas",
@@ -137,5 +136,8 @@
   "Specs": "Especificações",
   "Task": "Tarefa",
   "Price": "Preço",
-  "AssignmentDate": "Data De Atribuição"
+  "AssignmentDate": "Data De Atribuição",
+  "Tasks": "Tarefas",
+  "AssignToMe": "Solicito atribuição!",
+  "LevelExpl": "Por favor, informe o nível de habilidade de 1 (básico) a 5 (avançado)"
 }

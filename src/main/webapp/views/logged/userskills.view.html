@@ -105,14 +105,7 @@
                     </div>
                 </div>
 
-                <div data-component="crn-textinput" id="crn-textinput-level" class="">
-                    <div class="form-group">
-                        <label for="textinput-level" class="">{{'Level' | translate}}</label>
- <!-- else for if !model.hasCronappFramework() -->
-                                <input type="integer" ng-model="UserSkills.active.level" class="form-control" id="textinput-level" placeholder="Level" mask="" mask-placeholder="" ng-required="false">
-                         <!-- end if !model.hasCronappFramework() -->
-                    </div>
-                </div>
+                <div class="component-holder ng-binding ng-scope" data-component="crn-combobox" id="crn-combobox-751120"><div class="form-group"><label for="">{{'Level' | translate}}</label><ui-select crn-datasource="[{&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;key&quot;:&quot;2&quot;,&quot;value&quot;:&quot;2&quot;},{&quot;key&quot;:&quot;3&quot;,&quot;value&quot;:&quot;3&quot;},{&quot;key&quot;:&quot;4&quot;,&quot;value&quot;:&quot;4&quot;},{&quot;key&quot;:&quot;5&quot;,&quot;value&quot;:&quot;5&quot;}]" ng-model="UserSkills.active.level" ng-required="false" ng-disabled="disabled" theme="bootstrap" class="crn-select"><ui-select-match placeholder="Select..." class="">{{$select.selected.value}}</ui-select-match><ui-select-choices repeat="rowData.key as rowData in datasource.data | filter: $select.search" class=""><div class="">{{rowData.value}}</div></ui-select-choices></ui-select></div></div>
 
                 <div data-component="crn-dynamic-file" id="crn-textinput-attachment" class="">
                     <div class="form-group">

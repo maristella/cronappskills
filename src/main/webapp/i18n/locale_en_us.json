@@ -109,9 +109,8 @@
   "Project": "Project",
   "Attachment": "Attachment",
   "Status": "Status",
-  "TodoTasks": "Open Todo Tasks",
+  "TodoTasks": "Look for new tasks",
   "Details": "Details",
-  "AssignToMe": "Assign to Me!",
   "TaskDetails": "Task Details",
   "ProjectDetails": "Project Details",
   "FindTasks": "Find New Tasks",
@@ -119,7 +118,6 @@
   "ReqTasks": "Requested Tasks",
   "ConfAtrib": "Confirm Assignemt",
   "Requester": "Requester",
-  "Tasks": "",
   "AllTasks": "All Tasks",
   "SkillCat": "Skill Categories",
   "Category": "Category",
@@ -138,5 +136,8 @@
   "Specs": "Specifications",
   "Task": "Task",
   "Price": "Price",
-  "AssignmentDate": "Assignment Date"
+  "AssignmentDate": "Assignment Date",
+  "Tasks": "Tasks",
+  "AssignToMe": "Request assignment!",
+  "LevelExpl": "Please inform skill level from 1 (basic) to 5 (advanced)"
 }
