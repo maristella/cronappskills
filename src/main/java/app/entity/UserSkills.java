@@ -37,13 +37,6 @@ public class UserSkills implements Serializable {
   /**
   * @generated
   */
-  @Column(name = "cronuser_email", nullable = false, unique = false, insertable=true, updatable=true)
-  
-  private java.lang.String cronuser_email;
-
-  /**
-  * @generated
-  */
   @Column(name = "level", nullable = true, unique = false, insertable=true, updatable=true)
   
   private java.lang.Integer level;
@@ -63,6 +56,14 @@ public class UserSkills implements Serializable {
   @CronapiCloud(type = "dropbox", value="nownu5UgiJAAAAAAAAAAB3WIJx1-szMwBAcOKxuiqrP4Ee355jETd5B4PP9FoVxi")
   
   private java.lang.String attachment;
+
+  /**
+  * @generated
+  */
+  @ManyToOne
+  @JoinColumn(name="fk_user", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  
+  private User user;
 
   /**
    * Construtor
@@ -89,26 +90,6 @@ public class UserSkills implements Serializable {
    */
   public UserSkills setId(java.lang.String id){
     this.id = id;
-    return this;
-  }
-
-  /**
-   * Obtém cronuser_email
-   * return cronuser_email
-   * @generated
-   */
-  
-  public java.lang.String getCronuser_email(){
-    return this.cronuser_email;
-  }
-
-  /**
-   * Define cronuser_email
-   * @param cronuser_email cronuser_email
-   * @generated
-   */
-  public UserSkills setCronuser_email(java.lang.String cronuser_email){
-    this.cronuser_email = cronuser_email;
     return this;
   }
 
@@ -169,6 +150,26 @@ public class UserSkills implements Serializable {
    */
   public UserSkills setAttachment(java.lang.String attachment){
     this.attachment = attachment;
+    return this;
+  }
+
+  /**
+   * Obtém user
+   * return user
+   * @generated
+   */
+  
+  public User getUser(){
+    return this.user;
+  }
+
+  /**
+   * Define user
+   * @param user user
+   * @generated
+   */
+  public UserSkills setUser(User user){
+    this.user = user;
     return this;
   }
 

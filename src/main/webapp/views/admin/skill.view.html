@@ -6,7 +6,7 @@
     <div ng-hide="Skill.inserting || Skill.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
         <div class="form-group">
             <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
-            <input type="text" ng-model="vars.search" cronapp-filter="skill;" cronapp-filter-operator="" cronapp-filter-autopost="true" crn-datasource="Skill" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
+            <input ng-model="vars.search" cronapp-filter="skill;skillCat.category" cronapp-filter-operator="" cronapp-filter-autopost="true" crn-datasource="Skill" class="form-control" value="" placeholder="{search}" ______placeholder="{{'template.crud.search' | translate}}" cronapp-filter-caseinsensitive="true" type="text">
         </div>
     </div>
 
@@ -80,7 +80,7 @@
                     <div class="form-group">
                         <label for="textinput-skill" class="">{{'Skill' | translate}}</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="text" ng-model="Skill.active.skill" class="form-control" id="textinput-skill" placeholder="Skill" mask="" mask-placeholder="" ng-required="false">
+                                <input ng-model="Skill.active.skill" class="form-control" id="textinput-skill" placeholder="Skill" mask="" mask-placeholder="" ng-required="false" type="text">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>

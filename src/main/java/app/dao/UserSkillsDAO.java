@@ -52,4 +52,11 @@ public interface UserSkillsDAO extends JpaRepository<UserSkills, java.lang.Strin
   @Query("SELECT entity FROM UserSkills entity WHERE entity.skill.id = :id")
   public Page<UserSkills> findUserSkillssBySkill(@Param(value="id") java.lang.String id, Pageable pageable);
 
+  /**
+   * Foreign Key user
+   * @generated
+   */
+  @Query("SELECT entity FROM UserSkills entity WHERE entity.user.id = :id")
+  public Page<UserSkills> findUserSkillssByUser(@Param(value="id") java.lang.String id, Pageable pageable);
+
 }

@@ -139,5 +139,13 @@
   "AssignmentDate": "Data De Atribuição",
   "Tasks": "Tarefas",
   "AssignToMe": "Solicito atribuição!",
-  "LevelExpl": "Por favor, informe o nível de habilidade de 1 (básico) a 5 (avançado)"
+  "LevelExpl": "Por favor, informe o nível de habilidade de 1 (básico) a 5 (avançado)",
+  "Resume": "Currículo",
+  "Userandskills": "Usuários e Habilidades",
+  "EditSkills": "Editar Habilidades",
+  "AddTranslateUserskills": "Adicionar habilidades",
+  "UserSkills2": "Habilidade do Usuário",
+  "UserAndSkills": "Usuários e Habilidades",
+  "UserandskillsOrdered": "Usuário e Habilidades - Lista Ordenada",
+  "UserandskillsFilter": "Usuário e habilidades - Lista com Filtro"
 }

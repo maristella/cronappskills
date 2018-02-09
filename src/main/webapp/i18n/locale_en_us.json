@@ -139,5 +139,13 @@
   "AssignmentDate": "Assignment Date",
   "Tasks": "Tasks",
   "AssignToMe": "Request assignment!",
-  "LevelExpl": "Please inform skill level from 1 (basic) to 5 (advanced)"
+  "LevelExpl": "Please inform skill level from 1 (basic) to 5 (advanced)",
+  "Resume": "Resume",
+  "Userandskills": "Users and Skills",
+  "EditSkills": "Edit skills",
+  "AddTranslateUserskills": "Add skills",
+  "UserSkills2": "User Skills",
+  "UserAndSkills": "User and Skills",
+  "UserandskillsOrdered": "User and Skills - Ordered List",
+  "UserandskillsFilter": "User and skills - List with Filter"
 }

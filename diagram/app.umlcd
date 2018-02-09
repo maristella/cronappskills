@@ -164,12 +164,12 @@
       ],
       "methods": [],
       "position": {
-        "x": 32,
-        "y": 25.000003814697266
+        "x": 18,
+        "y": 7
       },
       "size": {
-        "width": 221.28125,
-        "height": 173.1056137084961
+        "width": 223,
+        "height": 174.1259307861328
       },
       "angle": 0,
       "isRest": true,
@@ -405,7 +405,7 @@
           "text": "email\nname\nid\nlogin\npicture\npassword\ntheme\nresume\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 82.6875,
+          "ref-x": 87,
           "font-size": 11,
           "text": "java.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\njava.lang.String\nFile Upload (to Dropbox)\n"
         },
@@ -722,19 +722,19 @@
       "name": "UserSkills",
       "attributes": [
         "id:java.lang.String",
-        "cronuser_email:java.lang.String",
         "level:java.lang.Integer",
         "skill:Skill",
-        "attachment:File Upload (to Dropbox)"
+        "attachment:File Upload (to Dropbox)",
+        "user:User"
       ],
       "methods": [],
       "position": {
-        "x": 296,
-        "y": 17
+        "x": 298,
+        "y": 16
       },
       "size": {
-        "width": 247.703125,
-        "height": 140.37017059326172
+        "width": 226,
+        "height": 141.3904800415039
       },
       "angle": 0,
       "multitenantContextJsonIgnore": "false",
@@ -763,29 +763,6 @@
           "isUniqueKey": false,
           "isNullable": false,
           "pkType": "UUID",
-          "multitenantContext": "",
-          "jsonIgnore": false,
-          "isTransient": false,
-          "isInsertable": true,
-          "isUpdatable": true,
-          "isEncryption": false,
-          "referencedColumnName": "",
-          "isSearchable": false
-        },
-        {
-          "name": "cronuser_email",
-          "type": "java.lang.String",
-          "dbName": "cronuser_email",
-          "dbLength": "",
-          "dbPrecision": "",
-          "dbScale": "",
-          "dbDefaultValue": "",
-          "label": "CronApp user email",
-          "mask": "",
-          "isPrimaryKey": false,
-          "isUniqueKey": false,
-          "isNullable": false,
-          "pkType": "",
           "multitenantContext": "",
           "jsonIgnore": false,
           "isTransient": false,
@@ -863,6 +840,29 @@
           "isEncryption": false,
           "referencedColumnName": "",
           "isSearchable": false
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "dbName": "fk_user",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "referencedColumnName": "",
+          "isSearchable": false
         }
       ],
       "runtimeClass": "cronos.widgets.joint.uml.Class",
@@ -897,12 +897,12 @@
         },
         ".uml-class-attrs-text": {
           "font-size": 11,
-          "text": "id\ncronuser_email\nlevel\nskill\nattachment\n"
+          "text": "id\nlevel\nskill\nattachment\nuser\n"
         },
         ".uml-class-attrs-value": {
-          "ref-x": 109.109375,
+          "ref-x": 90,
           "font-size": 11,
-          "text": "java.lang.String\njava.lang.String\njava.lang.Integer\nSkill\nFile Upload (to Dropbox)\n"
+          "text": "java.lang.String\njava.lang.Integer\nSkill\nFile Upload (to Dropbox)\nUser\n"
         },
         ".uml-class-methods-text": {
           "fill": "#0066FF",
@@ -1850,6 +1850,115 @@
           "text": ""
         }
       }
+    },
+    {
+      "type": "uml.Composition",
+      "relationFields": [
+        "user:target"
+      ],
+      "name": null,
+      "id": "45605851-e110-4ef9-a561-3d360f40605d",
+      "runtimeClass": "cronos.widgets.joint.arrow.OneToMany",
+      "target": {
+        "id": "1877d140-2191-4ceb-aebe-e4ba2affe287"
+      },
+      "source": {
+        "id": "d2e50f97-0b9e-4037-94ba-af64568af247"
+      },
+      "labels": [
+        {
+          "position": 0.9,
+          "attrs": {
+            "rect": {
+              "fill": "transparent"
+            },
+            "text": {
+              "text": "*",
+              "font-family": "Arial",
+              "font-size": "12px",
+              "fill": "#cecece"
+            }
+          }
+        }
+      ],
+      "z": 24,
+      "attrs": {
+        ".marker-target": {
+          "d": "",
+          "fill": ""
+        },
+        ".marker-source": {
+          "d": "M 40 10 L 20 20 L 0 10 L 20 0 z",
+          "fill": "#cecece"
+        }
+      }
+    },
+    {
+      "type": "uml.Class",
+      "name": "Class1",
+      "attributes": [],
+      "methods": [],
+      "position": {
+        "x": 16,
+        "y": 206
+      },
+      "size": {
+        "width": 93,
+        "height": 66.12727355957031
+      },
+      "angle": 0,
+      "multitenantContextJsonIgnore": "false",
+      "multitenantContextIgnoreEntities": "",
+      "role": "Auto",
+      "queries": null,
+      "tableName": null,
+      "tableScheme": null,
+      "isRest": "true",
+      "multitenantContext": "",
+      "restSecurity": null,
+      "restPath": "",
+      "id": "79ad902e-5bbf-4677-af1d-628c5b4029d5",
+      "fields": [],
+      "runtimeClass": "cronos.widgets.joint.uml.Class",
+      "z": 25,
+      "attrs": {
+        "rect": {
+          "stroke": "yellow",
+          "stroke-width": 2
+        },
+        ".uml-class-name-rect": {
+          "height": 50,
+          "transform": "translate(0,0)"
+        },
+        ".uml-class-attrs-rect": {
+          "height": 30,
+          "transform": "translate(0,50)"
+        },
+        ".uml-class-methods-rect": {
+          "height": 30,
+          "transform": "translate(0,80)"
+        },
+        ".uml-class-name-text": {
+          "fill": "#000",
+          "font-size": 12,
+          "text": "Class1",
+          "font-weight": "bold"
+        },
+        ".uml-class-attrs-text": {
+          "font-size": 11,
+          "text": ""
+        },
+        ".uml-class-attrs-value": {
+          "ref-x": 76,
+          "font-size": 11,
+          "text": ""
+        },
+        ".uml-class-methods-text": {
+          "fill": "#0066FF",
+          "font-size": 11,
+          "text": ""
+        }
+      }
     }
   ],
   "selectedGroup": "1d7f906f-a526-482d-aaf4-08d227ae8c18",
@@ -1866,6 +1975,7 @@
       "name": "",
       "id": "1d7f906f-a526-482d-aaf4-08d227ae8c18",
       "cells": [
+        "79ad902e-5bbf-4677-af1d-628c5b4029d5",
         "2bd2136b-c193-4b10-b0de-1aac8bc4bc8e",
         "52286ba4-9de3-43fc-a21c-10e74c2d0fc0",
         "1877d140-2191-4ceb-aebe-e4ba2affe287",

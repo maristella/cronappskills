@@ -50,19 +50,47 @@ public class UserSkillsBusiness {
 	 * @return Var
 	 */
 	// UserLogged
-	public static Var getEmailfromLoggedUser() throws Exception {
+	public static Var getLoginfromLoggedUser() throws Exception {
 		return new Callable<Var>() {
 
-			private Var searchUser = Var.VAR_NULL;
+			private Var search = Var.VAR_NULL;
+			private Var Entidade = Var.VAR_NULL;
+			private Var msgErro = Var.VAR_NULL;
+			private Var userid = Var.VAR_NULL;
+			private Var userskills = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				System.out.println(Var.valueOf("search email\n").getObjectAsString());
-				searchUser = cronapi.database.Operations.query(Var.valueOf("app.entity.User"),
-						Var.valueOf("select u.email from User u where u.login = :login"),
-						Var.valueOf("login", cronapi.util.Operations.getCurrentUserName()));
-				System.out.println(
-						cronapi.database.Operations.getField(searchUser, Var.valueOf("this[0]")).getObjectAsString());
-				return cronapi.database.Operations.getField(searchUser, Var.valueOf("this[0]"));
+				return cronapi.util.Operations.getCurrentUserName();
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @param userid
+	 * @return Var
+	 */
+	// Describe this function...
+	public static Var getSkillsfromUser(Var userid) throws Exception {
+		return new Callable<Var>() {
+
+			private Var userskills = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				System.out.println(Var.valueOf(Var.valueOf("Searching for skills:").toString() + userid.toString())
+						.getObjectAsString());
+				userskills = cronapi.database.Operations.queryPaged(Var.valueOf("app.entity.UserSkills"),
+						Var.valueOf("select u.skill.skill from UserSkills u where u.user.id = :userId"),
+						Var.valueOf(true), Var.valueOf("userId", userid));
+				while (cronapi.database.Operations.hasElement(userskills).getObjectAsBoolean()) {
+					System.out
+							.println(Var
+									.valueOf(Var.valueOf("skill: ").toString() + cronapi.database.Operations
+											.getColumn(userskills, Var.valueOf("this[0]")).toString())
+									.getObjectAsString());
+					cronapi.database.Operations.next(userskills);
+				} // end while
+				return Var.valueOf("oi");
 			}
 		}.call();
 	}
