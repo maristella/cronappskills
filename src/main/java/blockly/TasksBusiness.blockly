@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/TodoTasks.view.html" resourceType="JAVA" ruleDescription="Tasks" ruleName="Tasks" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="223.99999999999966" scrolly="751.5" target="7~OyTDJ~QEZWh%{|4^x1"/>
-  <block colour="#995ba5" id="7~OyTDJ~QEZWh%{|4^x1" origintype="procedures_defnoreturn" output="false" tooltip="Creates a function with no output." type="procedures_defnoreturn" x="-172" y="-727">
+  <metadata scale="1" scrollx="224.00000000000045" scrolly="751.5" target="7~OyTDJ~QEZWh%{|4^x1"/>
+  <block colour="#995ba5" id="7~OyTDJ~QEZWh%{|4^x1" origintype="procedures_defnoreturn" output="false" tooltip="Cria uma função que não tem retorno." type="procedures_defnoreturn" x="-172" y="-727">
     <field name="NAME">assignToMe</field>
     <comment h="80" pinned="false" w="160">Describe this function...</comment>
     <statement name="STACK">
-      <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="gLV57#0Gww#mf{me[$9a" origintype="variables_set" output="false" tooltip="Sets this variable to be equal to the input." type="variables_set">
+      <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="gLV57#0Gww#mf{me[$9a" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
         <field name="VAR">me</field>
         <value name="VALUE">
           <block colour="#487f7f" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="1vX?*E;l6Lui;JQ64MW1" multilayer="false" namespace="cronapi.util.Operations.callBlockly" origintype="procedures_callblockly_callreturn" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3EName:%3C/strong%3E%3Cdiv%3ECall%20blockly%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescription:%3C/strong%3E%3Cdiv%3EFunction%20to%20call%20a%20blocky%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParameters:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Block%20:%20Object%3C/span%3E%3Cdiv%3E%20Block%20name%3C/div%3E%3Cspan%3E%20-%20Parameters%20:%20Object%3C/span%3E%3Cdiv%3E%20Parameters%20to%20be%20passed%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3EReturn:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Object%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EHelp:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.util.Operations.callBlockly%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.util.Operations.callBlockly%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callblockly_callreturn">
@@ -12,12 +12,12 @@
           </block>
         </value>
         <next>
-          <block colour="#5ba58c" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="CeHnC/SsLrc%5#E$,Q}K" origintype="text_print" output="false" tooltip="Print the specified text, number or other value." type="text_print">
+          <block colour="#5ba58c" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="CeHnC/SsLrc%5#E$,Q}K" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
             <value name="TEXT">
               <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="i6T:3V*4|I{{P{Sm?IBz" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
                 <field name="TEXT">abc</field>
               </shadow>
-              <block colour="#5ba58c" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="S.Ebr(PMtUcuBPIj.,.a" origintype="text_join" output="true" tooltip="Create a piece of text by joining together any number of items." type="text_join">
+              <block colour="#5ba58c" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="S.Ebr(PMtUcuBPIj.,.a" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
                 <mutation items="2"/>
                 <value name="ADD0">
                   <block colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="MkR3PZ#b)V/R5%{w5z;f" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
@@ -25,7 +25,7 @@
                   </block>
                 </value>
                 <value name="ADD1">
-                  <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="_o*z:){?{2ygP)4|G?@3" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get">
+                  <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="_o*z:){?{2ygP)4|G?@3" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
                     <field name="VAR">me</field>
                   </block>
                 </value>
@@ -39,12 +39,12 @@
                   <arg name="id"/>
                 </mutation>
                 <value name="ARG0">
-                  <block colour="#995ba5" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="SnQHgF3~QoRJML(h}-Kt" origintype="procedures_callreturn" output="true" tooltip="Run the user-defined function 'requested' and use its output." type="procedures_callreturn">
+                  <block colour="#995ba5" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="SnQHgF3~QoRJML(h}-Kt" origintype="procedures_callreturn" output="true" tooltip="Executa a função definida pelo usuário &quot;requested&quot; e usa seu retorno." type="procedures_callreturn">
                     <mutation name="requested"/>
                   </block>
                 </value>
                 <value name="ARG1">
-                  <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="8DJm=F(tup`53?jW|VRV" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get">
+                  <block colour="#a55b80" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="8DJm=F(tup`53?jW|VRV" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
                     <field name="VAR">me</field>
                   </block>
                 </value>
@@ -61,7 +61,7 @@
                   </block>
                 </value>
                 <next>
-                  <block colour="#5ba58c" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="D[HCPuI{8pb^74/94UAf" origintype="text_print" output="false" tooltip="Print the specified text, number or other value." type="text_print">
+                  <block colour="#5ba58c" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="D[HCPuI{8pb^74/94UAf" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
                     <value name="TEXT">
                       <shadow colour="#5ba593" dependencyby="7~OyTDJ~QEZWh%{|4^x1" id="%bgNb~Z3GsDirWcQ#EMW" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
                         <field name="TEXT">fim</field>
@@ -76,14 +76,14 @@
       </block>
     </statement>
   </block>
-  <block colour="#995ba5" id="^g{Ctu/W1;/!PCel,Zij" origintype="procedures_defreturn" output="false" tooltip="Creates a function with an output." type="procedures_defreturn" x="-202" y="-712">
+  <block colour="#995ba5" id="^g{Ctu/W1;/!PCel,Zij" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-202" y="-712">
     <field name="NAME">status_list</field>
     <comment h="80" pinned="false" w="160">Describe this function...</comment>
     <statement name="STACK">
-      <block colour="#a55b80" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="IHWwPe|`b+PGJrs,d}dF" origintype="variables_set" output="false" tooltip="Sets this variable to be equal to the input." type="variables_set">
+      <block colour="#a55b80" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="IHWwPe|`b+PGJrs,d}dF" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
         <field name="VAR">listaStatus</field>
         <value name="VALUE">
-          <block colour="#745ba5" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="MZ!g-vdR?J*1NJ?4]:)0" origintype="lists_create_with" output="true" tooltip="Create a list with any number of items." type="lists_create_with">
+          <block colour="#745ba5" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="MZ!g-vdR?J*1NJ?4]:)0" origintype="lists_create_with" output="true" tooltip="Cria uma lista com a quantidade de itens informada." type="lists_create_with">
             <mutation items="4"/>
             <value name="ADD0">
               <block colour="#917731" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="y?6(6b-^V|L/m9t=|IM~" multilayer="false" namespace="cronapi.map.Operations.createObjectMapWith" origintype="maps_create_with" output="true" returntype="ObjectType.MAP" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3EName:%3C/strong%3E%3Cdiv%3ECreate%20a%20map%20object%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescription:%3C/strong%3E%3Cdiv%3EFunction%20that%20create%20a%20map%20object%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParameters:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Values%20:%20Object%3C/span%3E%3Cdiv%3E%20Variables%20to%20append%20on%20creation%20object%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3EReturn:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Map%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EHelp:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.map.Operations.createObjectMapWith%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.map.Operations.createObjectMapWith%3C/a%3E%3C/div%3E%3C/div%3E" type="maps_create_with">
@@ -137,12 +137,12 @@
           </block>
         </value>
         <next>
-          <block colour="#5ba58c" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="n+^oAyUX!2Ok;}e8K#-v" origintype="text_print" output="false" tooltip="Print the specified text, number or other value." type="text_print">
+          <block colour="#5ba58c" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="n+^oAyUX!2Ok;}e8K#-v" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
             <value name="TEXT">
               <shadow colour="#5ba593" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="^,`nyRbbGEV$[WT1|kZl" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
                 <field name="TEXT">abc</field>
               </shadow>
-              <block colour="#a55b80" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="k%[.M(/Hqu.Xhf0y#e*S" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get">
+              <block colour="#a55b80" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="k%[.M(/Hqu.Xhf0y#e*S" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
                 <field name="VAR">listaStatus</field>
               </block>
             </value>
@@ -151,12 +151,12 @@
       </block>
     </statement>
     <value name="RETURN">
-      <block colour="#a55b80" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="oDB5UAQ(j~J!aeGhagnH" origintype="variables_get" output="true" tooltip="Returns the value of this variable." type="variables_get">
+      <block colour="#a55b80" dependencyby="^g{Ctu/W1;/!PCel,Zij" id="oDB5UAQ(j~J!aeGhagnH" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
         <field name="VAR">listaStatus</field>
       </block>
     </value>
   </block>
-  <block colour="#995ba5" id="kgazQ*6Swh7l]@x$[Kt+" origintype="procedures_defreturn" output="false" tooltip="Creates a function with an output." type="procedures_defreturn" x="-202" y="-637">
+  <block colour="#995ba5" id="kgazQ*6Swh7l]@x$[Kt+" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-202" y="-637">
     <field name="NAME">requested</field>
     <comment h="80" pinned="false" w="160">Describe this function...</comment>
     <value name="RETURN">
@@ -165,7 +165,7 @@
       </block>
     </value>
   </block>
-  <block colour="#995ba5" id="3t=-q{q?-JgaVMo9=DXf" origintype="procedures_defreturn" output="false" tooltip="Creates a function with an output." type="procedures_defreturn" x="-149" y="-512">
+  <block colour="#995ba5" id="3t=-q{q?-JgaVMo9=DXf" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-149" y="-512">
     <field name="NAME">assigned</field>
     <comment h="80" pinned="false" w="160">Describe this function...</comment>
     <value name="RETURN">
@@ -174,7 +174,7 @@
       </block>
     </value>
   </block>
-  <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Creates a function with an output." type="procedures_defreturn" x="-217" y="-247">
+  <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-217" y="-247">
     <field name="NAME">todo</field>
     <comment h="80" pinned="false" w="160">Tasks</comment>
     <value name="RETURN">

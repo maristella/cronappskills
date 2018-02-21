@@ -53,14 +53,36 @@ public class UserSkillsBusiness {
 	public static Var getLoginfromLoggedUser() throws Exception {
 		return new Callable<Var>() {
 
+			private Var userid = Var.VAR_NULL;
+			private Var userskills = Var.VAR_NULL;
 			private Var search = Var.VAR_NULL;
 			private Var Entidade = Var.VAR_NULL;
 			private Var msgErro = Var.VAR_NULL;
-			private Var userid = Var.VAR_NULL;
-			private Var userskills = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				return cronapi.util.Operations.getCurrentUserName();
+			}
+		}.call();
+	}
+
+	/**
+	 *
+	 * @return Var
+	 */
+	// Descreva esta função...
+	public static Var getEmailfromLoggedUser() throws Exception {
+		return new Callable<Var>() {
+
+			private Var userid = Var.VAR_NULL;
+			private Var userskills = Var.VAR_NULL;
+			private Var search = Var.VAR_NULL;
+			private Var Entidade = Var.VAR_NULL;
+			private Var msgErro = Var.VAR_NULL;
+
+			public Var call() throws Exception {
+				return cronapi.database.Operations.query(Var.valueOf("app.entity.User"),
+						Var.valueOf("select u.email from User u where u.login = :login"),
+						Var.valueOf("login", cronapi.util.Operations.getCurrentUserName()));
 			}
 		}.call();
 	}

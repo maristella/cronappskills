@@ -4,7 +4,7 @@
 <div class="component-holder ng-binding ng-scope  col-xs-0" data-component="crn-datasource-filter" id="crn-datasource-filter-731968">
   <div class="form-group">
     <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
-    <input mask="" mask-placeholder="" cronapp-filter="login;email;name" cronapp-filter-operator="" cronapp-filter-caseinsensitive="true" cronapp-filter-autopost="true" crn-datasource="User" ng-model="vars.filter459" class="form-control" value="" placeholder="{search}" __________________placeholder="{search}" _____________________placeholder="{{'template.crud.search' | translate}}" ____________placeholder="{search}" type="text">
+    <input mask="" mask-placeholder="" cronapp-filter="login;email;name" cronapp-filter-operator="" cronapp-filter-caseinsensitive="true" cronapp-filter-autopost="true" crn-datasource="User" ng-model="vars.filter459" class="form-control" value="" placeholder="{search}" type="text" ______placeholder="{search}" __________________placeholder="{search}" _____________________placeholder="{{'template.crud.search' | translate}}">
   </div>
 </div>
 <div data-component="crn-button" id="crn-button-564202" class="col-xs-12"> 
@@ -30,7 +30,7 @@
             <div class="">
               {{'Resume' | translate}}
             </div> </th> 
-          <th class=""> 
+          <th><div data-container="true">{{'HorasDisponiveisSemanalmenteMin' | translate}}</div></th><th><div data-container="true">{{'HorasDisponiveisSemanalmenteMax' | translate}}</div></th><th class=""> 
             <div class="">
               {{'EditSkills' | translate}}
             </div> </th> 
@@ -50,7 +50,7 @@
             <div class=""> 
               <button ng-if="rowData.resume" class="btn btn-sm" ng-click="cronapi.internal.downloadFileEntity(datasource, 'resume', $index)"> <span class="glyphicon glyphicon-download-alt"></span> </button> 
             </div> </td> 
-          <td class=""> 
+          <td><div data-container="true">{{rowData.horasDisponibilidadeSemanalMin}}</div></td><td><div data-container="true">{{rowData.horasDisponibilidadeSemanalMax}}</div></td><td class=""> 
             <div class=""> 
               <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button> 
               <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button> 
@@ -110,8 +110,7 @@
             <input ng-model="User.active.password" class="form-control" id="textinput-password" placeholder="Senha" mask="" mask-placeholder="" ng-required="true" type="password"> 
             <!-- end if !model.hasCronappFramework() --> 
           </div> 
-        </div> 
-        <div data-component="crn-dynamic-file" id="crn-textinput-resume" class=""> 
+        </div><div data-component="crn-dynamic-file" id="crn-textinput-resume" class=""> 
           <div class="form-group"> 
             <label for="textinput-resume" class="">{{'Resume' | translate}}</label> 
             <!-- else for if !model.hasCronappFramework() --> 
@@ -120,7 +119,22 @@
             </div> 
             <!-- end if !model.hasCronappFramework() --> 
           </div> 
+        </div><div data-component="crn-textinput" id="crn-textinput-password" class=""> 
+          <div class="form-group"> 
+            <label for="textinput-password" class="">{{'HorasDisponiveisSemanalmenteMin' | translate}}</label> 
+            <!-- else for if !model.hasCronappFramework() --> 
+            <input ng-model="User.active.horasDisponibilidadeSemanalMin" class="form-control" id="textinput-horasDisponibilidadeSemanalmin" placeholder="Mínimo de horas disponíveis semanalmente" mask="" mask-placeholder="" ng-required="true" type="password"> 
+            <!-- end if !model.hasCronappFramework() --> 
+          </div> 
+        </div><div data-component="crn-textinput" id="crn-textinput-password" class=""> 
+          <div class="form-group"> 
+            <label for="textinput-password" class="">{{'HorasDisponiveisSemanalmenteMax' | translate}}</label> 
+            <!-- else for if !model.hasCronappFramework() --> 
+            <input ng-model="User.active.horasDisponibilidadeSemanalMax" class="form-control" id="ttextinput-horasDisponibilidadeSemanalmax" placeholder="Máximo de horas disponíveis semanalmente" mask="" mask-placeholder="" ng-required="true" type="password"> 
+            <!-- end if !model.hasCronappFramework() --> 
+          </div> 
         </div> 
+         
         <!-- NtoN  --> 
         <!-- NtoN  end--> 
       </fieldset> 

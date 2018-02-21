@@ -93,6 +93,20 @@ public class User implements Serializable {
   private java.lang.String resume;
 
   /**
+  * @generated
+  */
+  @Column(name = "horasDisponibilidadeSemanalMin", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.Integer horasDisponibilidadeSemanalMin;
+
+  /**
+  * @generated
+  */
+  @Column(name = "horasDisponibilidadeSemanalMax", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private java.lang.Integer horasDisponibilidadeSemanalMax;
+
+  /**
    * Construtor
    * @generated
    */
@@ -258,6 +272,46 @@ public class User implements Serializable {
    */
   public User setResume(java.lang.String resume){
     this.resume = resume;
+    return this;
+  }
+
+  /**
+   * Obtém horasDisponibilidadeSemanalMin
+   * return horasDisponibilidadeSemanalMin
+   * @generated
+   */
+  
+  public java.lang.Integer getHorasDisponibilidadeSemanalMin(){
+    return this.horasDisponibilidadeSemanalMin;
+  }
+
+  /**
+   * Define horasDisponibilidadeSemanalMin
+   * @param horasDisponibilidadeSemanalMin horasDisponibilidadeSemanalMin
+   * @generated
+   */
+  public User setHorasDisponibilidadeSemanalMin(java.lang.Integer horasDisponibilidadeSemanalMin){
+    this.horasDisponibilidadeSemanalMin = horasDisponibilidadeSemanalMin;
+    return this;
+  }
+
+  /**
+   * Obtém horasDisponibilidadeSemanalMax
+   * return horasDisponibilidadeSemanalMax
+   * @generated
+   */
+  
+  public java.lang.Integer getHorasDisponibilidadeSemanalMax(){
+    return this.horasDisponibilidadeSemanalMax;
+  }
+
+  /**
+   * Define horasDisponibilidadeSemanalMax
+   * @param horasDisponibilidadeSemanalMax horasDisponibilidadeSemanalMax
+   * @generated
+   */
+  public User setHorasDisponibilidadeSemanalMax(java.lang.Integer horasDisponibilidadeSemanalMax){
+    this.horasDisponibilidadeSemanalMax = horasDisponibilidadeSemanalMax;
     return this;
   }
 

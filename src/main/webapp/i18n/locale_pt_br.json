@@ -147,5 +147,8 @@
   "UserSkills2": "Habilidade do Usuário",
   "UserAndSkills": "Usuários e Habilidades",
   "UserandskillsOrdered": "Usuário e Habilidades - Lista Ordenada",
-  "UserandskillsFilter": "Usuário e habilidades - Lista com Filtro"
+  "UserandskillsFilter": "Usuário e habilidades - Lista com Filtro",
+  "HorasDisponiveisSemanalmenteMin": "Horas disponíveis semanalmente(min)",
+  "HorasDisponiveisSemanalmenteMax": "Horas disponíveis semanalmente(max)",
+  "Senha": "Senha"
 }

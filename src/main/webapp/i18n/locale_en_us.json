@@ -147,5 +147,8 @@
   "UserSkills2": "User Skills",
   "UserAndSkills": "User and Skills",
   "UserandskillsOrdered": "User and Skills - Ordered List",
-  "UserandskillsFilter": "User and skills - List with Filter"
+  "UserandskillsFilter": "User and skills - List with Filter",
+  "HorasDisponiveisSemanalmenteMin": "Hours available weekly(min)",
+  "HorasDisponiveisSemanalmenteMax": "Hours available weekly(max)",
+  "Senha": "Password"
 }
