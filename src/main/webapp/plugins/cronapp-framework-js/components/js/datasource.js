@@ -40,6 +40,7 @@ angular.module('datasourcejs', [])
         this.rowsPerPage = null;
         this.append = true;
         this.headers = null;
+        this.responseHeaders = null;
         this._activeValues = null;
         this.errorMessage = "";
         this.onError = null;
@@ -47,18 +48,17 @@ angular.module('datasourcejs', [])
         this.loadedFinish = null;
         this.lastFilterParsed = null;
 
-        // Private members
-        var cursor = 0;
-        var service = null;
-        var _savedProps;
-        var hasMoreResults = false;
-        var busy = false;
-        var loaded = false;
+        this.busy = false;
+        this.cursor = 0;
+        this._savedProps;
+        this.hasMoreResults = false;
+        this.loaded = false;
+        this.unregisterDataWatch = null;
+        this.dependentBufferLazyPostData = null; //TRM
+        this.lastAction = null; //TRM
+        this.dependentData = null; //TRM
         var _self = this;
-        var unregisterDataWatch = null;
-        var dependentBufferLazyPostData = null; //TRM
-        var lastAction = null; //TRM
-        var dependentData = null; //TRM
+        var service = null;
 
         // Public methods
 
@@ -90,7 +90,7 @@ angular.module('datasourcejs', [])
                 var fields = {};
 
                 var _callback;
-                busy = true;
+                this.busy = true;
                 url = url.replace('/specificSearch', '');
                 url = url.replace('/generalSearch', '');
 
@@ -120,14 +120,14 @@ angular.module('datasourcejs', [])
                 data: (object) ? JSON.stringify(object) : null,
                 headers: _self.headers
               }).success(function(data, status, headers, config) {
-                busy = false;
+                this.busy = false;
                 if (_callback) _callback(isCronapiQuery?data.value:data);
                 if (isCronapiQuery) {
                   _self.$scope.cronapi.evalInContext(JSON.stringify(data));
                 }
               }).error(function(data, status, headers, config) {
-                busy = false;
-                _self.handleError(isCronapiQuery?data.value:data);
+                this.busy = false;
+                _self.handleError(isCronapiQuery&&data.value?data.value:data);
               });
 
               this.$promise.then = function(callback) {
@@ -141,14 +141,14 @@ angular.module('datasourcejs', [])
            * Check if the datasource is waiting for any request response
            */
           this.isBusy = function() {
-            return busy;
+            return this.busy;
           }
 
           /**
            * Check if the datasource was loaded by service
            */
           this.isLoaded = function() {
-            return loaded;
+            return this.loaded;
           }
 
           this.toString = function() {
@@ -379,7 +379,7 @@ angular.module('datasourcejs', [])
               this[thisContextDataSet.dependentLazyPostField] = eval(thisContextDataSet.dependentLazyPost).active;
 
               if (thisContextDataSet.entity.indexOf('//') > -1) {
-                var keyObj = getKeyValues(eval(thisContextDataSet.dependentLazyPost).active);
+                var keyObj = this.getKeyValues(eval(thisContextDataSet.dependentLazyPost).active);
                 var suffixPath = '';
                 for (var key in keyObj) {
                   if (keyObj.hasOwnProperty(key)) {
@@ -392,7 +392,7 @@ angular.module('datasourcejs', [])
 
               thisContextDataSet.insert(this);
             });
-            busy = false;
+            this.busy = false;
             this.editing = false;
             this.inserting = false;
           } else {
@@ -435,7 +435,7 @@ angular.module('datasourcejs', [])
         this.update = function(obj, callback) {
 
           // Get the keys values
-          var keyObj = getKeyValues(obj);
+          var keyObj = this.getKeyValues(obj);
 
           //TRM
           if (this.dependentBufferLazyPostData && obj.tempBufferId) {
@@ -497,7 +497,7 @@ angular.module('datasourcejs', [])
 
           this.lastAction = "post"; //TRM
 
-          busy = true;
+          this.busy = true;
 
           if (this.inserting) {
             // Make a new request to persist the new item
@@ -522,7 +522,7 @@ angular.module('datasourcejs', [])
             // Make a new request to update the modified item
             this.update(this.active, function(obj) {
               // Get the list of keys
-              var keyObj = getKeyValues(obj);
+              var keyObj = this.getKeyValues(obj);
 
               // For each row data
               this.data.forEach(function(currentRow) {
@@ -530,7 +530,7 @@ angular.module('datasourcejs', [])
                 // current object match with the
                 // extracted key values
                 var found;
-                var dataKeys = getKeyValues(currentRow);
+                var dataKeys = this.getKeyValues(currentRow);
                 for (var key in keyObj) {
                   if (dataKeys[key] && dataKeys[key] === keyObj[key]) {
                     found = true;
@@ -562,7 +562,7 @@ angular.module('datasourcejs', [])
 
         this.refreshActive = function() {
           if (this.active) {
-            var keyObj = getKeyValues(this.active);
+            var keyObj = this.getKeyValues(this.active);
             var url = this.entity;
             url += (this.entity.endsWith('/')) ? '' : '/';
             for (var key in keyObj) {
@@ -624,7 +624,7 @@ angular.module('datasourcejs', [])
 
         // Set this datasource back to the normal state
         this.onBackNomalState = function() {
-          busy = false;
+          this.busy = false;
           this.editing = false;
           this.inserting = false;
         };
@@ -634,8 +634,8 @@ angular.module('datasourcejs', [])
          */
         this.cancel = function() {
           if (this.inserting) {
-            if (cursor >= 0)
-              this.active = this.data[cursor];
+            if (this.cursor >= 0)
+              this.active = this.data[this.cursor];
             else
               this.active = {};
           }
@@ -702,14 +702,14 @@ angular.module('datasourcejs', [])
          */
         this.remove = function(object, callback) {
 
-          busy = true;
+          this.busy = true;
 
           var _remove = function(object, callback) {
             if (!object) {
               object = this.active;
             }
 
-            var keyObj = getKeyValues(object);
+            var keyObj = this.getKeyValues(object);
 
             //TRM
             if (this.dependentBufferLazyPostData) {
@@ -736,7 +736,7 @@ angular.module('datasourcejs', [])
                 // current object match with the same
                 // vey values
                 // Iterate all keys checking if the
-                var dataKeys = getKeyValues(this.data[i]);
+                var dataKeys = this.getKeyValues(this.data[i]);
                 // Check all keys
                 var found;
                 for (var key in keyObj) {
@@ -785,7 +785,7 @@ angular.module('datasourcejs', [])
          * Get the object keys values from the datasource keylist
          * PRIVATE FUNCTION
          */
-        var getKeyValues = function(rowData) {
+        this.getKeyValues = function(rowData) {
           var keys = this.keys;
 
           var keyValues = {};
@@ -806,9 +806,9 @@ angular.module('datasourcejs', [])
         /**
          * Check if two objects are equals by comparing their keys PRIVATE FUNCTION.
          */
-        var objectIsEquals = function(object1, object2) {
-          var keys1 = getKeyValues(object1);
-          var keys2 = getKeyValues(object2);
+        this.objectIsEquals = function(object1, object2) {
+          var keys1 = this.getKeyValues(object1);
+          var keys2 = this.getKeyValues(object2);
           for (var key in keys1) {
             if (keys1.hasOwnProperty(key)) {
               if (!keys2.hasOwnProperty(key)) return false;
@@ -822,21 +822,21 @@ angular.module('datasourcejs', [])
          * Check if the object has more itens to iterate
          */
         this.hasNext = function() {
-          return this.data && (cursor < this.data.length - 1);
+          return this.data && (this.cursor < this.data.length - 1);
         };
 
         /**
          * Check if the cursor is not at the beginning of the datasource
          */
         this.hasPrevious = function() {
-          return this.data && (cursor > 0);
+          return this.data && (this.cursor > 0);
         };
 
         /**
          * Check if the object has more itens to iterate
          */
         this.order = function(order) {
-          _savedProps.order = order;
+          this._savedProps.order = order;
         };
 
         /**
@@ -879,7 +879,7 @@ angular.module('datasourcejs', [])
           if (!this.hasNext()) {
             this.nextPage();
           }
-          this.active = this.copy(this.data[++cursor], {});
+          this.active = this.copy(this.data[++this.cursor], {});
           return this.active;
         };
 
@@ -887,18 +887,20 @@ angular.module('datasourcejs', [])
          *  Try to fetch the previous page
          */
         this.nextPage = function() {
+          var resourceURL = (window.hostApp || "") + this.entity;
+          
           if (!this.hasNextPage()) {
             return;
           }
-          if (this.apiVersion == 1) {
+          if (this.apiVersion == 1 || resourceURL.indexOf('/cronapi/') == -1) {
             this.offset = parseInt(this.offset) + parseInt(this.rowsPerPage);
           } else {
             this.offset = parseInt(this.offset) + 1;
           }
-          this.fetch(_savedProps, {
+          this.fetch(this._savedProps, {
             success: function(data) {
               if (!data || data.length < parseInt(this.rowsPerPage)) {
-                if (this.apiVersion == 1) {
+                if (this.apiVersion == 1 || resourceURL.indexOf('/cronapi/') == -1) {
                   this.offset = parseInt(this.offset) - this.data.length;
                 }
               }
@@ -916,7 +918,7 @@ angular.module('datasourcejs', [])
             if (this.offset < 0) {
               this.offset = 0;
             } else if (this.offset >= 0) {
-              this.fetch(_savedProps, {
+              this.fetch(this._savedProps, {
                 success: function(data) {
                   if (!data || data.length === 0) {
                     this.offset = 0;
@@ -931,7 +933,7 @@ angular.module('datasourcejs', [])
          *  Check if has more pages
          */
         this.hasNextPage = function() {
-          return hasMoreResults && (this.rowsPerPage != -1);
+          return this.hasMoreResults && (this.rowsPerPage != -1);
         };
 
         /**
@@ -946,7 +948,7 @@ angular.module('datasourcejs', [])
          */
         this.previous = function() {
           if (!this.hasPrevious()) throw "Dataset Overflor Error";
-          this.active = this.copy(this.data[--cursor], {});
+          this.active = this.copy(this.data[--this.cursor], {});
           return this.active;
         };
 
@@ -956,8 +958,8 @@ angular.module('datasourcejs', [])
         this.goTo = function(rowId) {
           for (var i = 0; i < this.data.length; i++) {
             if (this.data[i][this.key] === rowId) {
-              cursor = i;
-              this.active = this.copy(this.data[cursor], {});
+              this.cursor = i;
+              this.active = this.copy(this.data[this.cursor], {});
               return this.active;
             }
           }
@@ -967,7 +969,7 @@ angular.module('datasourcejs', [])
          *  Get the current cursor index
          */
         this.getCursor = function() {
-          return cursor;
+          return this.cursor;
         };
 
         /**
@@ -1069,7 +1071,7 @@ angular.module('datasourcejs', [])
           this.data.length = 0;
           this.cursor = -1;
           this.active = {};
-          hasMoreResults = false;
+          this.hasMoreResults = false;
         }
 
         /**
@@ -1116,7 +1118,7 @@ angular.module('datasourcejs', [])
           if (this.dependentLazyPost) {
             if (eval(this.dependentLazyPost).active) {
               var checkRequestId = '';
-              var keyDependentLazyPost = getKeyValues(eval(this.dependentLazyPost).active);
+              var keyDependentLazyPost = this.getKeyValues(eval(this.dependentLazyPost).active);
               for (var key in keyDependentLazyPost) {
                 checkRequestId = keyDependentLazyPost[key]
                 break;
@@ -1129,7 +1131,7 @@ angular.module('datasourcejs', [])
 
           // Set Limit and offset
           if (this.rowsPerPage > 0) {
-            if (this.apiVersion == 1) {
+            if (this.apiVersion == 1 || resourceURL.indexOf('/cronapi/') == -1) {
               props.params.limit = this.rowsPerPage;
               props.params.offset = this.offset;
             } else {
@@ -1142,10 +1144,10 @@ angular.module('datasourcejs', [])
           this.stopAutoPost();
 
           // Store the last configuration for late use
-          _savedProps = props;
+          this._savedProps = props;
 
           // Make the datasource busy
-          busy = true;
+          this.busy = true;
 
           // Get an ajax promise
           this.$promise = $http({
@@ -1154,18 +1156,19 @@ angular.module('datasourcejs', [])
             params: props.params,
             headers: this.headers
           }).success(function(data, status, headers, config) {
-            busy = false;
-            sucessHandler(data)
+            this.busy = false;
+            sucessHandler(data, headers())
           }.bind(this)).error(function(data, status, headers, config) {
-            busy = false;
+            this.busy = false;
             this.handleError(data);
             if (callbacks.error) callbacks.error.call(this, data);
           }.bind(this));
 
           // Success Handler
-          var sucessHandler = function(data) {
+          var sucessHandler = function(data, headers) {
             var springVersion = false;
-
+            this.responseHeaders = headers || {};
+            
             if (this.entity.indexOf('//') > -1 && this.entity.indexOf('://') < 0)
               data = [];
             if (data) {
@@ -1200,10 +1203,10 @@ angular.module('datasourcejs', [])
                 Array.prototype.push.apply(this.data, data);
                 if (this.data.length > 0) {
                   this.active = data[0];
-                  cursor = 0;
+                  this.cursor = 0;
                 } else {
                   this.active = {};
-                  cursor = -1;
+                  this.cursor = -1;
                 }
               }
             } else {
@@ -1211,7 +1214,7 @@ angular.module('datasourcejs', [])
               Array.prototype.push.apply(this.data, data);
               if (this.data.length > 0) {
                 this.active = data[0];
-                cursor = 0;
+                this.cursor = 0;
               }
             }
 
@@ -1224,10 +1227,10 @@ angular.module('datasourcejs', [])
 
             if (callbacks.success) callbacks.success.call(this, data);
 
-            hasMoreResults = (data.length >= this.rowsPerPage);
+            this.hasMoreResults = (data.length >= this.rowsPerPage);
 
             if (springVersion) {
-              hasMoreResults = this.getLink("next") != null;
+              this.hasMoreResults = this.getLink("next") != null;
             }
 
             /*
@@ -1240,7 +1243,7 @@ angular.module('datasourcejs', [])
               this.startAutoPost();
             }
 
-            loaded = true;
+            this.loaded = true;
             this.loadedFinish = true;
             this.handleAfterCallBack(this.onAfterFill);
             var thisDatasourceName = this.name;
@@ -1334,12 +1337,12 @@ angular.module('datasourcejs', [])
          * Used to monitore the this datasource data for change (insertion and deletion)
          */
         this.startAutoPost = function() {
-          unregisterDataWatch = $rootScope.$watch(function() {
+          this.unregisterDataWatch = $rootScope.$watch(function() {
             return this.data;
           }.bind(this), function(newData, oldData) {
 
             if (!this.enabled) {
-              unregisterDataWatch();
+              this.unregisterDataWatch();
               return;
             }
 
@@ -1358,7 +1361,7 @@ angular.module('datasourcejs', [])
               // Some item was removed
               var removedItems = oldData.filter(function(oldItem) {
                 return newData.filter(function(newItem) {
-                  return objectIsEquals(oldItem, newItem);
+                  return this.objectIsEquals(oldItem, newItem);
                 }).length == 0;
               });
 
@@ -1374,9 +1377,9 @@ angular.module('datasourcejs', [])
          */
         this.stopAutoPost = function() {
           // Unregister any defined watcher on data variable
-          if (unregisterDataWatch) {
-            unregisterDataWatch();
-            unregisterDataWatch = undefined;
+          if (this.unregisterDataWatch) {
+            this.unregisterDataWatch();
+            this.unregisterDataWatch = undefined;
           }
         }
 
@@ -1385,6 +1388,11 @@ angular.module('datasourcejs', [])
             return true;
           else
             return false;
+        }
+        
+        if (window.afterDatasourceCreate) {
+          var args = [$q, $timeout, $rootScope, $window, Notification];
+          window.afterDatasourceCreate.apply(this, args);
         }
 
         this.init();

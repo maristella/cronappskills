@@ -1607,28 +1607,41 @@
 		"entityFullName": "app.entity.User",
 		"query": {
 			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
 			"rulesEntity": [
 				{
 					"entity": "User",
-					"alias": "u",
-					"namespace": "app.entity.User"
+					"namespace": "app.entity.User",
+					"alias": "u"
 				}
 			],
 			"rulesSelect": [
 				{
 					"func": "get",
-					"field": "u"
+					"field": "u",
+					"type": "string"
 				}
 			],
 			"rulesGroupBy": [],
 			"rulesHaving": [],
-			"rulesOrderBy": [],
+			"rulesOrderBy": [
+				{
+					"func": "get",
+					"field": "u.name",
+					"order": "asc"
+				}
+			],
 			"rules": {
 				"condition": "AND",
+				"rules": [],
 				"not": false,
-				"valid": true,
-				"rules": []
-			}
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
 		},
 		"queryParamsValues": [],
 		"verbs": {
@@ -1661,7 +1674,9 @@
 			"picture": null,
 			"password": null,
 			"theme": null,
-			"resume": null
+			"resume": null,
+			"horasDisponibilidadeSemanalMin": null,
+			"horasDisponibilidadeSemanalMax": null
 		},
 		"security": {
 			"id": null,
@@ -1671,7 +1686,9 @@
 			"picture": null,
 			"password": null,
 			"theme": null,
-			"resume": null
+			"resume": null,
+			"horasDisponibilidadeSemanalMin": null,
+			"horasDisponibilidadeSemanalMax": null
 		},
 		"calcFields": {},
 		"calcFieldsSecurity": {},

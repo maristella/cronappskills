@@ -1264,84 +1264,6 @@
       }
     },
     {
-      "name": "crn-chart-bar",
-      "text_pt_BR": "Barra de gráfico",
-      "text_en_US": "Chart Bar",
-      "class": "adjust-icon mdi mdi-chart-bar",
-      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/chart-bar.template.html",
-      "wrapper":false
-    },
-    {
-		"name": "crn-chart-doughnut",
-		"text_pt_BR": "Gráfico Donut",
-		"text_en_US": "Chart Doughnut",
-		"class": "adjust-icon mdi mdi-chart-arc",
-		"templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/chart-doughnut.template.html",
-		"properties": {
-			"chart-data": {
-				"target": "canvas",
-				"type": "pageDatasource",
-				"onSave": "javascript:function() { var result = arguments[0]; if (result.length > 0) result = result+'.columns[0]'; return result; }",
-				"onDisplay": "javascript:function() { return arguments[0].replace('.columns[0]',''); }"
-			},
-			"chart-labels": {
-				"target": "canvas",
-				"type": "pageDatasource",
-				"onSave": "javascript:function() { var result = arguments[0]; if (result.length > 0) result = result+'.columns[1]'; return result; }",
-				"onDisplay": "javascript:function() { return arguments[0].replace('.columns[1]',''); }"
-			}
-		},
-		"groupedChildren": [
-			{
-				"text_pt_BR": "Gráfico",
-				"text_en_US": "Chart",
-				"selector": "canvas"
-			}
-		]		
-    },
-    {
-      "name": "crn-chart-line",
-      "text_pt_BR": "Gráfico em linhas",
-      "text_en_US": "Chart Line",
-      "class": "adjust-icon mdi mdi-chart-line",
-      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/chart-line.template.html",
-      "wrapper":false
-    },
-    {
-      "name": "crn-chart-pie",
-      "text_pt_BR": "Gráfico de torta",
-      "text_en_US": "Chart Pie",
-      "class": "adjust-icon mdi mdi-chart-pie",
-      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/chart-pie.template.html",
-      "wrapper":false
-    },
-    {
-      "name": "crn-chart-polar-area",
-      "text_pt_BR": "Gráfico de area polar",
-      "text_en_US": "Chart Polar Area",
-      "class": "adjust-icon mdi mdi-chart-scatterplot-hexbin",
-      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/chart-polar-area.template.html",
-      "wrapper":false
-    },
-    {
-      "name": "crn-chart-radar",
-      "text_pt_BR": "Gráfico em radar",
-      "text_en_US": "Chart Radar",
-      "class": "adjust-icon mdi mdi-speedometer",
-      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/chart-radar.template.html",
-      "wrapper":false
-    },
-    {
-      "name": "crn-chart-gauge",
-      "text_pt_BR": "Gráfico de indicador",
-      "text_en_US": "Chart Gauge",
-      "class": "adjust-icon mdi mdi-gauge",
-      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/chart-gauge.template.html",
-      "wrapper":false,
-      "autoWrapper": true,
-      "forcedGroup":true
-    },
-    {
       "name": "crn-title",
       "text_pt_BR": "Título",
       "text_en_US": "Title",
@@ -1628,6 +1550,106 @@
           "selector": "textarea"
         }
       ]
+	},
+	{
+		"name": "crn-QRCode",
+		"text_pt_BR": "Código QR",
+		"text_en_US": "QR Code",
+		"class": "adjust-icon mdi mdi-qrcode",
+		"wrapper": false,
+		"template": "<div qr=\"true\" ng-model=\"vars.QR${RANDOM}\" ><div> </div> </div>",
+		"properties": {
+			"ng-model": {
+				"onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+				"onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+			},
+			"qr": {
+				"removable": false,
+				"displayName": "QR Code"
+			}
+		},
+		"classForPreview": {
+			"targetSelector": "div:parent",
+			"condition": [
+				{
+					"name": "qr",
+					"value": "true",
+					"class": "qrCodeCronapp"
+				},
+				{
+					"name": "qr",
+					"value": "false",
+					"class": "qrCodeCronapp"
+				}
+			]
+		}
+	},
+	{
+		"name": "crn-chart",
+		"text_pt_BR": "Gráfico",
+		"text_en_US": "Chart",
+		"class": "adjust-icon mdi mdi-chart-bar",
+		"wrapper": false,
+		"template": "<div> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
+		"classForPreview": {
+			"targetSelector": "canvas",
+			"condition": [
+				{
+					"name": "data-component",
+					"value": "crn-chart",
+					"class": "chart chart-line"
+				}
+			]
+		}
+	},
+	{
+		"name": "crn-panel",
+		"text_pt_BR": "Painel",
+		"text_en_US": "Panel",
+		"class": "adjust-icon mdi mdi-file-presentation-box",
+		"templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/panel.template.html",
+		"properties": {
+			"xattr-theme": {
+				"displayName": "Theme"
+			}
+		},
+		"attributesForPreview": [
+			{
+				"name": "xattr-theme",
+				"type": "options",
+				"target": "class",
+				"values": [
+					{
+						"key": "panel-default",
+						"value": "Default"
+					},
+					{
+						"key": "panel-primary",
+						"value": "Primary"
+					},
+					{
+						"key": "panel-success",
+						"value": "Success"
+					},
+					{
+						"key": "panel-info",
+						"value": "Info"
+					},
+					{
+						"key": "panel-warning",
+						"value": "Warning"
+					},
+					{
+						"key": "panel-danger",
+						"value": "Danger"
+					},
+					{
+						"key": "panel-link",
+						"value": "Link"
+					}
+				]
+			}
+		]
 	}
   ]
 }

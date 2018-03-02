@@ -156,7 +156,18 @@ var app = (function() {
         // For any unmatched url, redirect to /state1
         $urlRouterProvider.otherwise("/error/404");
       })
-
+      .factory('originPath', ['$location', function($location) {  
+        var originPath = {
+            request: function(config) {
+                config.headers['origin-path'] = $location.path();
+                return config;
+            }
+        };
+        return originPath;
+      }])
+    	.config(['$httpProvider', function($httpProvider) {  
+    	    $httpProvider.interceptors.push('originPath');
+      }])
       .config(function($translateProvider, tmhDynamicLocaleProvider) {
 
         $translateProvider.useMissingTranslationHandlerLog();
@@ -253,7 +264,10 @@ var app = (function() {
 
         $scope.registerComponentScripts();
 
-        try { $controller('AfterPageController', { $scope: $scope }); } catch(e) {};
+        try { 
+          var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });  
+          app.copyContext(contextAfterPageController, this, 'AfterPageController');
+        } catch(e) {};
         try { if ($scope.blockly.events.afterPageRender) $scope.blockly.events.afterPageRender(); } catch(e) {};
       })
 
@@ -322,6 +336,17 @@ app.registerEventsCronapi = function($scope, $translate) {
     console.info('Not loaded blockly functions');
     console.info(e);
   }
+};
+
+app.copyContext = function(fromContext, toContext, controllerName) {
+	if (fromContext) {
+  	for (var item in fromContext) {
+  	  if (!toContext[item])
+  	    toContext[item] = fromContext[item];
+  	  else 
+  	    toContext[item+controllerName] = fromContext[item];
+  	}
+	}
 };
 
 window.safeApply = function(fn) {
